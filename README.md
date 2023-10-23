@@ -1,10 +1,10 @@
-#Sabores de Catamarca
+# Sabores de Catamarca
 
 Sabores de Catamarca es una markplace dedicada a promover y comercializar productos regionales de la Provincia de Catamarca.  
 Fundada en el año 2000, la empresa ha construido un camino sólido en la producción y venta de dulces, confituras, arropes, aceites de oliva, entre otros; elaborados con ingredientes locales y con un amor inquebrantable por la región; preservando las tradiciones locales que se manifiesta en cada uno de sus productos elaborados con técnicas artesanales transmitidas de generación en generación.
 Con un enfoque en la calidad, Sabores de Catamarca se destaca por su compromiso con la herencia cultural y por ofrecer una experiencia de sabores única que refleja la esencia de la tierra catamarqueña.
 
-##Productos Ofrecidos:
+## Productos Ofrecidos:
 
 - Dulces enfrascados de: Membrillo, Cayote, Higos, Durazno, Manzana, Naranja.
 - Frutas en Almíbar enfrascados: Lima, Zapallo, Cuaresmillos, Higos, Cayote etc.
@@ -12,11 +12,11 @@ Con un enfoque en la calidad, Sabores de Catamarca se destaca por su compromiso 
 - Arropes: Tuna, Chañar, Uva.
 - Aceite de Oliva.
 
-##Descripción del público
+## Descripción del público
 
 Consumidores que se distinguen por su gusto hacia productos de origen natural, auténticos y tradicionales sobre lo industrializado. Valoran la pureza de los ingredientes y aprecian la artesanía y el carácter distintivo de cada región. Amantes de las experiencias que van más allá del simple acto de consumir alimentos, buscando una conexión profunda con la tierra, la riqueza cultural y la historia de la región.
 
-##Integrantes del Equipo
+## Integrantes del Equipo
 
 - Cristian Carrizo: Tiene una sólida habilidad para trabajar de manera colaborativa y eficiente. Su capacidad para asimilar rápidamente las últimas tecnologías en el ámbito de la informática lo convierte en un activo valioso. Recientemente ha completado una formación especializada en Testing y Debugging de Software (QA) y actualmente está inmerso en un programa de estudios en Diseño UX/UI.
 
@@ -26,7 +26,7 @@ Consumidores que se distinguen por su gusto hacia productos de origen natural, a
 
 - Diego Soto: Comunicador Social, posee un conocimiento en programación y desarrollo adquirido a través de múltiples cursos y en forma autodidacta. Su convicción de mantenerse al tanto de las últimas tecnologías y metodologías de trabajo refleja su disposición para enfrentar desafíos en un entorno tecnológico en constante evolución.
 
-##Sitios de Referencia:
+## Sitios de Referencia:
 
 - [masquebien.com.ar](https://masquebien.com.ar/)
   Este sitio fue seleccionado como sitio de referencia por los productos o servicios que ofrecen, además por la estética del sitio; que por su simplismo y funcionalidad fue considerado como uno de los sitios a replicar. Consideramos también que nuestro público objetivo puede ser el mismo a los que apuntan desde este sitio.
