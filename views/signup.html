@@ -8,6 +8,7 @@
       src="https://kit.fontawesome.com/a75c503483.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <title>Sabores de Catamarca</title>
   </head>
   <body>
@@ -42,82 +43,50 @@
           <a href="#">Carrito <i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         <div class="account-link">
-          <a href="/signup">Crear cuenta</a>
-          <a href="/signin#">Iniciar sesi&oacute;n</a>
-          <a href="/signout#">Cerrar sesi&oacute;n</a>
+          <a href="#">Crear cuenta</a>
+          <a href="#">Iniciar sesión</a>
         </div>
       </div>
     </header>
+
     <section class="container">
-      <div class="carousel">
-        <button class="carousel-control prev">
-          <i class="fa-solid fa-caret-left"></i>
-        </button>
-        <div class="carousel-images">
-          <img src="images/cayote.jpg" alt="Imagen 1" />
-        </div>
-        <button class="carousel-control next">
-          <i class="fa-solid fa-caret-right"></i>
-        </button>
-        <div class="carousel-dots">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
+      
+      <h2><span>CREAR CUENTA</span></h2>
+      
+      <div class="form-area">
+        <form action="#" method="post">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+          </div>
+          <div class="form-group">
+            <label for="telefono">Telefono (opcional)</label>
+            <input type="text" name="telefono" id="telefono">
+          </div>
+          <div class="form-group">
+            <label for="password">Contrase&ntilde;a</label>
+            <input type="password" name="password" id="password">
+          </div>
+          <div class="form-group">
+            <label for="password2">Confirmar contrase&ntilde;a</label>
+            <input type="password" name="password2" id="password2">
+          </div>
+
+          <div class="area-captcha">
+            <div class="g-recaptcha" data-sitekey="6LeuzvYoAAAAAM8PPbieTuoTLjHzdHY0LAUvRFZe"></div>
+          </div>
+
+          <div class="form-group">
+            <button>Crear cuenta</button>
+            <p id="ya_tenes_cuenta">Ya tenes una cuenta?<span> <a href="/signin">Inici&aacute; sesi&oacute;n</a></span></p>
+          </div>
+        </form>
       </div>
-    </section>
-    <section class="featured-products container">
-      <h2><span>Productos Destacados</span></h2>
-      <div class="card-grid">
-        <div class="card">
-          <img src="images/cayote.jpg" alt="Imagen del producto" />
-          <h3>Nombre del producto</h3>
-          <p>Descripción del producto</p>
-          <button>Ver más</button>
-        </div>
-        <div class="card">
-          <img src="images/cayote.jpg" alt="Imagen del producto" />
-          <h3>Nombre del producto</h3>
-          <p>Descripción del producto</p>
-          <button>Ver más</button>
-        </div>
-        <div class="card">
-          <img src="images/cayote.jpg" alt="Imagen del producto" />
-          <h3>Nombre del producto</h3>
-          <p>Descripción del producto</p>
-          <button>Ver más</button>
-        </div>
-        <div class="card">
-          <img src="images/cayote.jpg" alt="Imagen del producto" />
-          <h3>Nombre del producto</h3>
-          <p>Descripción del producto</p>
-          <button>Ver más</button>
-        </div>
-        <div class="card">
-          <img src="images/cayote.jpg" alt="Imagen del producto" />
-          <h3>Nombre del producto</h3>
-          <p>Descripción del producto</p>
-          <button>Ver más</button>
-        </div>
-        <div class="card">
-          <img src="images/cayote.jpg" alt="Imagen del producto" />
-          <h3>Nombre del producto</h3>
-          <p>Descripción del producto</p>
-          <button>Ver más</button>
-        </div>
-        <div class="card">
-          <img src="images/cayote.jpg" alt="Imagen del producto" />
-          <h3>Nombre del producto</h3>
-          <p>Descripción del producto</p>
-          <button>Ver más</button>
-        </div>
-        <div class="card">
-          <img src="images/cayote.jpg" alt="Imagen del producto" />
-          <h3>Nombre del producto</h3>
-          <p>Descripción del producto</p>
-          <button>Ver más</button>
-        </div>
-      </div>
+
     </section>
     <section class="follow-us">
       <h2><span>Seguinos</span></h2>
