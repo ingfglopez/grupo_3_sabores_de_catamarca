@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;800&family=Roboto&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  color: #728e5d;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 2.5%;
+  width: 95%;
+  height: 1px;
+  background: #728e5d;
+  z-index: -1;
+}
+
+h2 span {
+  background: white;
+  padding: 0 10px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #fff;
+  color: #6c6c6c;
+}
+
+a {
+  color: #6c6c6c;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #6c6c6c;
+  background-color: #ffe9de;
+}
+
+.logo {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  width: 60%;
+}
+
+.centered-header {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: space-around;
+}
+
+.search-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.search-header input[type="search"] {
+  width: 100%;
+  height: 40px;
+  border-radius: 50px;
+  padding: 10px;
+  padding-right: 50px;
+  border: 1px solid #6c6c6c;
+}
+
+.search-icon {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #728e5d;
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.main-menu {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+  padding: 0;
+  width: 100%;
+  padding: 0;
+}
+
+.main-menu li {
+  margin-right: 20px;
+  text-transform: uppercase;
+}
+
+.main-menu li a {
+  text-decoration: none;
+}
+
+.account-cart {
+  display: flex;
+  width: 25%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.account-links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.account-link a {
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.8rem;
+}
+
+.cart a {
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.carousel {
+  position: relative;
+  width: 95%;
+  height: 40vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 2em;
+  color: #fff;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+.carousel-images {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 95%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.card {
+  flex: 0 0 calc(25% - 20px);
+  background-color: #ffe9de;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card button {
+  background-color: #6c6c6c;
+  color: white;
+  padding: 6px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 500ms;
+}
+
+.card button:hover {
+  background-color: #728e5d;
+}
+
+.card h3 {
+  color: #f86e31;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.social-button {
+  display: inline-block;
+  background-color: #6c6c6c;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  margin: 20px;
+  transition: background-color 300ms;
+}
+
+.social-button:hover {
+  background-color: #f86e31;
+}
+
+.social-button .fab {
+  padding: 20px;
+}
+
+footer {
+  gap: 0 100px;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  background-color: #728e5d;
+  font-family: "Montserrat", sans-serif;
+  flex-wrap: wrap;
+}
+
+.colum-footer {
+  padding: 20px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fff;
+}
+
+footer .copyrigth {
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  background-color: #435337;
+  font-size: 12px;
+}
