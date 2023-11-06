@@ -176,6 +176,10 @@ main {
   color: #fff;
 }
 
+.carousel-control:hover {
+  background-color: transparent;
+}
+
 .prev {
   left: 20px;
 }
