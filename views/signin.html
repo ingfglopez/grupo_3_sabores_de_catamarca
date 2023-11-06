@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <!-- <link rel="stylesheet" href="css/styles.css" /> -->
+  <link rel="stylesheet" href="../public/css/styles.css" />
   <script src="https://kit.fontawesome.com/a75c503483.js" crossorigin="anonymous"></script>
   <script src="https://www.google.com/recaptcha/api.js"></script>
   <title>Sabores de Catamarca</title>
@@ -13,7 +14,8 @@
 <body>
   <header>
     <div class="logo">
-      <img src="images/logo_delicias_de_catamarca.png" alt="Sabores de Catamarca" />
+      <!-- <img src="images/logo_delicias_de_catamarca.png" alt="Sabores de Catamarca" /> -->
+      <img src="../design/Logo/logo Delicias de Catamarca.png" alt="Sabores de Catamarca" />
     </div>
     <div class="centered-header">
       <div class="search-header">
@@ -54,17 +56,21 @@
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" name="email" id="email">
+          <span class="input-error">El email no es valido</span>
         </div>
         <div class="form-group">
           <label for="password">Contrase&ntilde;a</label>
           <input type="password" name="password" id="password">
+          <span class="input-error">La contrase&ntilde;a es obligatoria</span>
         </div>
 
-        <p id="ya_tenes_cuenta"><span><a href="#">Olvidaste tu contrase&ntilde;a?</a></span></p>
+        <div class="form-group">
+          <p><span><a href="#">Olvidaste tu contrase&ntilde;a?</a></span></p>
+        </div>
 
         <div class="form-group">
           <button>INICIAR SESI&Oacute;N</button>
-          <p id="ya_tenes_cuenta">No tenes cuenta?<span><a href="/signup">Crear cuenta</a></span></p>
+          <p>No tenes cuenta?<span><a href="/signup">Crear cuenta</a></span></p>
         </div>
       </form>
     </div>

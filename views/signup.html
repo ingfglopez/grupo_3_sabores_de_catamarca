@@ -54,10 +54,12 @@
         <div class="form-group">
           <label for="nombre">Nombre</label>
           <input type="text" name="nombre" id="nombre">
+          <span class="input-error">El nombre es obligatorio</span>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" name="email" id="email">
+          <span class="input-error">El email es obligatorio</span>
         </div>
         <div class="form-group">
           <label for="telefono">Telefono (opcional)</label>
@@ -66,10 +68,12 @@
         <div class="form-group">
           <label for="password">Contrase&ntilde;a</label>
           <input type="password" name="password" id="password">
+          <span class="input-error">El contrase&ntilde;a es obligatoria</span>
         </div>
         <div class="form-group">
           <label for="password2">Confirmar contrase&ntilde;a</label>
           <input type="password" name="password2" id="password2">
+          <span class="input-error">Las contrase&ntilde;as no coinciden</span>
         </div>
 
         <div class="area-captcha">
@@ -78,9 +82,8 @@
 
         <div class="form-group">
           <button>CREAR CUENTA</button>
-          <p id="ya_tenes_cuenta">Ya tenes una cuenta?<span> <a href="/signin">Inici&aacute; sesi&oacute;n</a></span>
-          </p>
         </div>
+        <p>Ya tenes una cuenta?<span> <a href="/signin">Inici&aacute; sesi&oacute;n</a></span></p>
       </form>
     </div>
 

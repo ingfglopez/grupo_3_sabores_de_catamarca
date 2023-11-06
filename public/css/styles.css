@@ -486,7 +486,7 @@ footer .copyrigth {
 
 .form-group {
   padding: 5px;
-  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .form-group label {
@@ -499,6 +499,14 @@ footer .copyrigth {
   display: block;
   width: 100%;
   padding: 0.5rem 0.75rem;
+}
+
+.input-error {
+  display: block;
+  color: red;
+  font-size: 0.7rem;
+  padding-left: 3px;
+  margin-top: 5px;
 }
 
 button {
@@ -521,16 +529,18 @@ form button {
   width: 100%;
 }
 
-#ya_tenes_cuenta {
+form p {
   text-align: center;
   font-size: 0.9em;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .area-captcha {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 @media (min-width: 767px) {
