@@ -20,3 +20,7 @@ app.get("/signin", (req, res) => {
 app.get("/signout", (req, res) => {
   res.sendFile(__dirname + "/views/signout.html");
 });
+
+app.get("/productDetail", (req, res) => {
+  res.sendFile(__dirname + "/views/productDetail.html");
+});
