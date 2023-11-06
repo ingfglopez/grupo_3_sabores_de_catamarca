@@ -477,13 +477,59 @@ form button {
   .detail {
     flex-direction: column;
   }
+}
 
-  .img-detail {
-    width: 100%;
-  }
+.form-area {
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
-  .description-detail {
-    width: 100%;
-    padding: 10px 20px;
-  }
+.form-group {
+  padding: 5px;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: inline-block;
+  font-size: 14px;
+  margin-bottom: 0.25rem;
+}
+
+.form-group input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+}
+
+button {
+  background-color: #6c6c6c;
+  color: white;
+  padding: 6px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 500ms;
+}
+
+button:hover {
+  background-color: #728e5d;
+}
+
+form button {
+  display: block;
+  width: 100%;
+}
+
+#ya_tenes_cuenta {
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 20px;
+}
+
+.area-captcha {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

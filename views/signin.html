@@ -47,39 +47,24 @@
 
   <section class="container">
 
-    <h2><span>CREAR CUENTA</span></h2>
+    <h2><span>INICIAR SESI&Oacute;N</span></h2>
 
     <div class="form-area">
       <form action="#" method="post">
-        <div class="form-group">
-          <label for="nombre">Nombre</label>
-          <input type="text" name="nombre" id="nombre">
-        </div>
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" name="email" id="email">
         </div>
         <div class="form-group">
-          <label for="telefono">Telefono (opcional)</label>
-          <input type="text" name="telefono" id="telefono">
-        </div>
-        <div class="form-group">
           <label for="password">Contrase&ntilde;a</label>
           <input type="password" name="password" id="password">
         </div>
-        <div class="form-group">
-          <label for="password2">Confirmar contrase&ntilde;a</label>
-          <input type="password" name="password2" id="password2">
-        </div>
 
-        <div class="area-captcha">
-          <div class="g-recaptcha" data-sitekey="6LeuzvYoAAAAAM8PPbieTuoTLjHzdHY0LAUvRFZe"></div>
-        </div>
+        <p id="ya_tenes_cuenta"><span><a href="#">Olvidaste tu contrase&ntilde;a?</a></span></p>
 
         <div class="form-group">
-          <button>CREAR CUENTA</button>
-          <p id="ya_tenes_cuenta">Ya tenes una cuenta?<span> <a href="/signin">Inici&aacute; sesi&oacute;n</a></span>
-          </p>
+          <button>INICIAR SESI&Oacute;N</button>
+          <p id="ya_tenes_cuenta">No tenes cuenta?<span><a href="/signup">Crear cuenta</a></span></p>
         </div>
       </form>
     </div>
