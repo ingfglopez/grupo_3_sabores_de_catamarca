@@ -424,61 +424,6 @@ form button {
   font-size: 2rem;
 }
 
-@media (max-width: 767px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .logo {
-    width: 100%;
-    display: flex;
-  }
-
-  .logo img {
-    height: 20%;
-  }
-
-  .main-menu li a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .main-menu li a i {
-    display: inline;
-    background-color: #728e5d;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    margin: 5px;
-    padding: 10px;
-  }
-
-  .main-menu li:nth-child(3) {
-    display: inline;
-  }
-
-  .search-header,
-  .main-menu li:nth-last-child(-n + 2),
-  .account-cart {
-    display: none;
-  }
-
-  .card {
-    flex: 0 0 calc(50% - 10px);
-  }
-
-  footer {
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  .detail {
-    flex-direction: column;
-  }
-}
-
 .form-area {
   margin-top: 20px;
   padding-left: 10px;
@@ -532,4 +477,68 @@ form button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 767px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    width: 100%;
+    display: flex;
+  }
+
+  .logo img {
+    height: 20%;
+  }
+
+  .main-menu li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-menu li a i {
+    display: inline;
+    background-color: #728e5d;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    margin: 5px;
+    padding: 10px;
+  }
+
+  .main-menu li:nth-child(3) {
+    display: inline;
+  }
+
+  .search-header,
+  .main-menu li:nth-last-child(-n + 2),
+  .account-cart {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 calc(50% - 10px);
+  }
+
+  footer {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .detail {
+    flex-direction: column;
+  }
+
+  .img-detail {
+    width: 100%;
+  }
+
+  .description-detail {
+    width: 100%;
+    padding: 10px 20px;
+  }
 }
