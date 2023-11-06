@@ -386,7 +386,11 @@ form button {
   content: "→";
 }
 
-.detail {
+/* Product Detail */
+
+.detail,
+.product-cart,
+.product-selection {
   display: flex;
   width: 95%;
   margin-bottom: 20px;
@@ -422,7 +426,78 @@ form button {
 
 .price {
   font-size: 2rem;
+  margin: 20px 0;
 }
+
+/* Product Cart */
+
+.box-cart {
+  background-color: #ffe9de;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.product-selection {
+  gap: 20px;
+}
+
+.product-control {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  border: 1px solid #6c6c6c;
+  align-self: flex-start;
+}
+
+.control-add {
+  background-color: initial;
+  color: initial;
+  border-radius: initial;
+  padding: 10px;
+  margin: 0px;
+  cursor: pointer;
+  width: 40px;
+}
+
+.control-add:hover {
+  background-color: #6c6c6c;
+  color: #fff;
+}
+
+.control-value {
+  font-size: 18px;
+  padding: 0 20px;
+}
+
+.purchase-summary {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-around;
+}
+
+.purchase-summary h3 {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #6c6c6c;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: none;
+  padding: 10px;
+  text-align: right;
+}
+
+th {
+  text-align: left;
+}
+
+/********************/
 
 .form-area {
   margin-top: 20px;
@@ -479,6 +554,8 @@ form button {
   align-items: center;
 }
 
+/* Media Query Mobile */
+
 @media (max-width: 767px) {
   header {
     flex-direction: column;
@@ -529,8 +606,19 @@ form button {
     justify-content: flex-start;
   }
 
-  .detail {
+  .detail,
+  .product-selection {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .detail {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+
+  .product-cart {
+    width: 100%;
   }
 
   .img-detail {
@@ -540,5 +628,9 @@ form button {
   .description-detail {
     width: 100%;
     padding: 10px 20px;
+  }
+
+  .purchase-summary {
+    width: 100%;
   }
 }
