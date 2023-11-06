@@ -7,7 +7,10 @@
   <!-- <link rel="stylesheet" href="css/styles.css" /> -->
   <link rel="stylesheet" href="../public/css/styles.css" />
   <script src="https://kit.fontawesome.com/a75c503483.js" crossorigin="anonymous"></script>
+  <!-- <link rel="stylesheet" href="css/menu.css"> -->
+  <link rel="stylesheet" href="../public/css/menu.css">
   <script src="https://www.google.com/recaptcha/api.js"></script>
+  
   <title>Sabores de Catamarca</title>
 </head>
 
@@ -15,25 +18,31 @@
   <header>
     <div class="logo">
       <!-- <img src="images/logo_delicias_de_catamarca.png" alt="Sabores de Catamarca" /> -->
-      <img src="../design/Logo/logo Delicias de Catamarca.png" alt="Sabores de Catamarca" />
+      <img src="../design/Logo/logo Delicias de Catamarca2.png" alt="Sabores de Catamarca" />
     </div>
+
+    <button class="abrir-menu" id="abrir"><i class="fa-solid fa-bars"></i></button>
+
     <div class="centered-header">
+    <!-- <div> -->
       <div class="search-header">
         <input type="search" />
         <div class="search-icon">
           <i class="fas fa-search"></i>
         </div>
       </div>
-      <div>
-        <nav>
-          <ul class="main-menu">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Productos</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#">Nosotros</a></li>
-          </ul>
-        </nav>
-      </div>
+    </div>
+
+    <div>
+      <nav class="nav" id="nav">
+        <button class="cerrar-menu" id="cerrar"><i class="fas fa-times"></i></button>
+        <ul class="main-menu nav-list">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Productos</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Nosotros</a></li>
+        </ul>
+      </nav>
     </div>
 
     <div class="account-cart">
@@ -120,6 +129,10 @@
       <p>Copyrigth © Grupo 3 | Sabores de Catamarca</p>
     </div>
   </footer>
+
+  <!-- <script src="js/main.js"></script> -->
+  <script src="../public/js/main.js"></script>
+  
 </body>
 
 </html>

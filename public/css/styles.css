@@ -51,13 +51,15 @@ header {
   padding: 20px;
   border-bottom: 1px solid #6c6c6c;
   background-color: #ffe9de;
+  align-items: center; /**/
 }
 
 .logo {
-  width: 25%;
+  /* width: 25%; */
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 15rem; /**/
 }
 
 .logo img {
@@ -308,8 +310,12 @@ footer .copyrigth {
 
 @media (max-width: 767px) {
   header {
-    flex-direction: column;
-    align-items: center;
+    /* flex-direction: inherit; */
+    /* align-items: center; */
+  }
+
+  .centered-header {
+    display: none;
   }
 
   .logo {
@@ -365,8 +371,8 @@ footer .copyrigth {
 
 @media (max-width: 767px) {
   header {
-    flex-direction: column;
-    align-items: center;
+    /* flex-direction: column; */
+    /* align-items: center; */
   }
 
   .logo {
@@ -422,8 +428,8 @@ footer .copyrigth {
 
 @media (max-width: 767px) {
   header {
-    flex-direction: column;
-    align-items: center;
+    /* flex-direction: column; */
+    /* align-items: center; */
   }
 
   .logo {
