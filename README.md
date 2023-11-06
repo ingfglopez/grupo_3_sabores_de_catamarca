@@ -42,3 +42,7 @@ Consumidores que se distinguen por su gusto hacia productos de origen natural, a
 
 - [duosilvestre.com.ar](https://duosilvestre.com.ar/)
   Si bien no es un markplace, es un sitio que se selecciono por su estética. Presenta productos enfrascados (escabeches) igual que nuestro sitio.
+
+  ## Tablero Trello:
+
+  - [trello.com/b/Es1xrzUh/proyecto-integrador-grupo-3-fs-dh](https://trello.com/b/Es1xrzUh/proyecto-integrador-grupo-3-fs-dh)
