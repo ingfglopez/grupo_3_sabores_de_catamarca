@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+    <main>
+      <div class="breadcumb">
+        <nav class="breadcrumb">
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="#">Producto</a></li>
+            <li><span>Nombre del Producto</span></li>
+          </ul>
+        </nav>
+      </div>
+      <section class="detail container">
+        <div class="img-detail">
+          <img src="images/cayote.jpg" alt="Nombre del Producto" />
+        </div>
+        <div class="description-detail">
+          <h3>Nombre del Producto</h3>
+          <div class="product-ranking">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="price">$ 00.000,00</div>
+          <h4>Medios de Pago</h4>
+          <h4>Detalles del producto</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil a quo
+            id quae aliquam tempora excepturi nobis sed? Voluptate quas ipsum
+            sunt repudiandae, atque suscipit laborum maiores eos assumenda
+            aliquid.
+          </p>
+          <a href="/productCart" class="button">Agregar al Carrito</a>
+        </div>
+      </section>
+      <section class="featured-products container">
+        <h2><span>Productos Relacionados</span></h2>
+        <div class="card-grid">
+          <div class="card">
+            <img src="images/cayote.jpg" alt="Imagen del producto" />
+            <h3>Nombre del producto</h3>
+            <p>Descripción del producto</p>
+            <a href="/productDetail" class="button">Ver más</a>
+          </div>
+          <div class="card">
+            <img src="images/cayote.jpg" alt="Imagen del producto" />
+            <h3>Nombre del producto</h3>
+            <p>Descripción del producto</p>
+            <a href="/productDetail" class="button">Ver más</a>
+          </div>
+          <div class="card">
+            <img src="images/cayote.jpg" alt="Imagen del producto" />
+            <h3>Nombre del producto</h3>
+            <p>Descripción del producto</p>
+            <a href="/productDetail" class="button">Ver más</a>
+          </div>
+          <div class="card">
+            <img src="images/cayote.jpg" alt="Imagen del producto" />
+            <h3>Nombre del producto</h3>
+            <p>Descripción del producto</p>
+            <a href="/productDetail" class="button">Ver más</a>
+          </div>
+        </div>
+      </section>
+      <%- include('../partials/follow-us') %>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

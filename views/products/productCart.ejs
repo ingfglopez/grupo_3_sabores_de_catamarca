@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+    <main>
+      <div class="breadcumb">
+        <nav class="breadcrumb">
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="#">Producto</a></li>
+            <li>Nombre del Producto</li>
+            <li><span>Carrito</span></li>
+          </ul>
+        </nav>
+      </div>
+      <section class="product-cart container">
+        <div class="product-selection">
+          <div class="detail container box-cart">
+            <div class="img-detail">
+              <img src="images/cayote.jpg" alt="Nombre del Producto" />
+            </div>
+            <div class="description-detail">
+              <h3>Nombre del Producto</h3>
+              <div class="price">$ 00.000,00</div>
+              <div class="product-control">
+                <button class="control-add">-</button>
+                <div class="control-value">1</div>
+                <button class="control-add">+</button>
+              </div>
+              <div style="margin-top: 10px">
+                <a href="">Editar</a>
+                <a style="margin-left: 20px" href="">Eliminar</a>
+              </div>
+            </div>
+          </div>
+          <div class="purchase-summary box-cart">
+            <h3>Resumen de Compra</h3>
+            <table>
+              <tr>
+                <th>Producto 1</th>
+                <td>$00.00</td>
+              </tr>
+              <tr>
+                <th>Producto 2</th>
+                <td>$00.00</td>
+              </tr>
+              <tr>
+                <th>Total</th>
+                <td>$00.00</td>
+              </tr>
+            </table>
+
+            <a href="" class="button">Finalizar Compra</a>
+          </div>
+        </div>
+      </section>
+      <%- include('../partials/follow-us') %>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>
