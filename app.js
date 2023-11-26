@@ -29,3 +29,7 @@ app.get("/productDetail", (req, res) => {
 app.get("/productCart", (req, res) => {
   res.render("products/productCart");
 });
+
+app.get("/productForm", (req, res) => {
+  res.render("products/productForm");
+});

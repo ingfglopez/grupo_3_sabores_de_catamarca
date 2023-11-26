@@ -107,7 +107,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .main-menu {
@@ -161,6 +160,7 @@ main {
 
 .container {
   margin-top: 20px;
+  width: 100%;
 }
 
 .carousel {
@@ -336,7 +336,6 @@ footer .copyrigth {
 
 .form-group {
   padding: 5px;
-  margin-bottom: 1.5rem;
 }
 
 .form-group label {
@@ -363,6 +362,7 @@ form button {
 }
 
 .area-captcha {
+  padding-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -518,7 +518,6 @@ th {
 
 .form-group {
   padding: 5px;
-  margin-bottom: 1.5rem;
 }
 
 .form-group label {
@@ -527,7 +526,9 @@ th {
   margin-bottom: 0.25rem;
 }
 
-.form-group input {
+.form-group input,
+.form-group textarea,
+.form-group select {
   display: block;
   width: 100%;
   padding: 0.5rem 0.75rem;
