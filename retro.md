@@ -1,3 +1,33 @@
+# Retrospectiva - 2° y 3° Sprint - Grupo 3 - Sabores de Catamarca
+
+## ⭐ Starfish retrospective
+
+### ▶️ Start Doing:
+
+- Implementar una técnica de estimación de recursos para ayudar al equipo a determinar el esfuerzo necesario para completar una tarea. La idea es poder evaluar con precisión las tareas y obtener una imagen más precisa del equipo en función del esfuerzo que requerirán resolver esas tareas y dónde podrían surgir problemas.
+- Probar e implementar el desarrollo guiado por pruebas.
+- Testear el camino crítico de la aplicación.
+
+### 🚀 More of:
+
+- Deberíamos incrementar la frecuencia de reuniones del grupo.
+- Uso del tablero kanban (Trello)
+
+### ♾️ Keep Doing:
+
+- Mantener las reuniones del grupo.
+- Continuar con la asignación en función de las habilidades de cada integrante del grupo.
+- Continuar con el apoyo, la motivación y retroalimentación entre los miembros del equipo.
+
+### ⤵️ Less of:
+
+- Dentro de las actividades llevadas a cabo, no hemos determinado acciones o cosas que no aporten valor.
+- Stop Doing: Cuando la práctica no le da valor o simplemente no gusta en el grupo.
+
+### 🚫 Stop Doing:
+
+- Dentro de las actividades llevadas a cabo, no hemos determinado acciones o cosas que necesitemos eliminar o dejar de hacer.
+
 # Retrospectiva - 1° Sprint - Grupo 3 - Sabores de Catamarca
 
 ## 👌 Went well (Salió bien)
