@@ -48,9 +48,12 @@ a {
 header {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  /* padding: 20px; */
   border-bottom: 1px solid #6c6c6c;
   background-color: #ffe9de;
+  /***/
+  align-items: center;
+  padding: 1.2rem;
 }
 
 .logo {
@@ -115,16 +118,17 @@ main {
   justify-content: space-around;
   margin-top: 10px;
   width: 100%;
+  gap: 1rem;
 }
 
 .main-menu li {
-  margin-right: 20px;
-  text-transform: uppercase;
+  /* margin-right: 20px; */
+  text-transform: capitalize;
 }
 
-.main-menu li:nth-child(3) {
+/* .main-menu li:nth-child(3) {
   display: none;
-}
+} */
 
 .main-menu li a {
   text-decoration: none;
@@ -566,6 +570,51 @@ form button {
   align-items: center;
 }
 
+/****/
+
+.nav-list {
+  display: flex;
+  list-style-type: none;
+  gap: 1rem;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.nav-list li {
+  margin-right: 20px;
+  text-transform: capitalize;
+}
+
+.nav-list a {
+  text-decoration: none;
+  /* color: #1c1c1c; */
+}
+
+.abrir-menu,
+.cerrar-menu {
+  display: none;
+}
+
+.menu-list {
+  display: flex;
+  margin: auto;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.abrir-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 1.2rem;
+  margin-right: 1.2rem;
+}
+
+/******************/
+
 /* Media Query Mobile */
 
 @media (max-width: 767px) {
@@ -599,12 +648,12 @@ form button {
     padding: 10px;
   }
 
-  .main-menu li:nth-child(3) {
+  /* .main-menu li:nth-child(3) {
     display: inline;
-  }
+  } */
 
   .search-header,
-  .main-menu li:nth-last-child(-n + 2),
+  /* .main-menu li:nth-last-child(-n + 2), */
   .account-cart {
     display: none;
   }
@@ -644,5 +693,69 @@ form button {
 
   .purchase-summary {
     width: 100%;
+  }
+
+  /********/
+
+  .menu-list {
+    margin: 0;
+    justify-content: space-evenly;
+  }
+
+  .abrir-menu,
+  .cerrar-menu {
+    display: block;
+    border: 0;
+    font-size: 1.8rem;
+    background-color: transparent;
+  }
+
+  .abrir-menu {
+    color: #7a8d60;
+  }
+
+  .abrir-menu:hover {
+    background-color: transparent;
+  }
+  
+  .cerrar-menu:hover {
+    background-color: transparent;
+    color: white;
+  }
+
+  .cerrar-menu {
+    color: #ececec;
+  }
+
+  .nav {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3b4930;
+    padding: 1.2rem;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+    transition: all 500ms;
+    z-index: 10000;
+  }
+
+  .nav.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: end;
+  }
+
+  .nav-list li a {
+    color: #ececec;
   }
 }
