@@ -5,11 +5,10 @@
   <body>
     <%- include('../partials/header') %>
       <main>
-        <%= categories %>
         <section class="container">
           <h2><span>Nuevo Producto</span></h2>
           <div class="form-area">
-            <form id="productForm">
+            <form id="productForm" action="/products" method="POST" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="productName">Nombre del producto</label>
                 <input type="text" id="productName" name="name" required /><br />
@@ -37,17 +36,17 @@
               </div>
               <div class="form-group">
                 <label for="productWeight">Peso:</label>
-                <input type="number" id="productWeight" name="weight" required /><br />
+                <input type="text" id="productWeight" name="weight" required /><br />
               </div>
               <div class="form-group">
                 <label for="productStock">Stock</label>
-                <input type="number" id="stock" name="stock" /><br />
+                <input type="number" id="productStock" name="stock" /><br />
               </div>
               <div class="form-group">
                 <label for="productPrice">Precio:</label>
                 <input type="number" id="productPrice" name="price" required /><br />
                 <div class="form-group">
-                  <button type="button">Agregar</button>
+                  <button type="submit">Agregar</button>
                 </div>
             </form>
           </div>

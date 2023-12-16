@@ -1,66 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
-  <%- include('../partials/head') %>
-  <body>
-  <%- include('../partials/header') %>
-    <main class="container">
+<%- include('../partials/head') %>
 
-      <section class="featured-products container">
-        <h2><span>Productos</span></h2>
-        <div class="card-grid">
-          <div class="card">
-            <img src="images/cayote.jpg" alt="Imagen del producto" />
-            <h3>Nombre del producto</h3>
-            <p>Descripción del producto</p>
-            <a href="/productDetail" class="button">Ver más</a>
+  <body>
+    <%- include('../partials/header') %>
+      <main class="container">
+
+        <section class="featured-products container">
+          <h2><span>Productos</span></h2>
+          <div class="card-grid">
+            <% data.forEach( producto=> {%>
+              <div class="card">
+                <img src="/images/<%=producto.image%>" alt="Imagen del producto" />
+                <h3>
+                  <%= producto.name %>
+                </h3>
+                <p>
+                  <%= producto.description %>
+                </p>
+                <a href="/products/<%= producto.id%>" class="button">Ver más</a>
+              </div>
+              <% }); %>
+
           </div>
-          <div class="card">
-            <img src="images/cayote.jpg" alt="Imagen del producto" />
-            <h3>Nombre del producto</h3>
-            <p>Descripción del producto</p>
-            <a href="/productDetail" class="button">Ver más</a>
-          </div>
-          <div class="card">
-            <img src="images/cayote.jpg" alt="Imagen del producto" />
-            <h3>Nombre del producto</h3>
-            <p>Descripción del producto</p>
-            <a href="/productDetail" class="button">Ver más</a>
-          </div>
-          <div class="card">
-            <img src="images/cayote.jpg" alt="Imagen del producto" />
-            <h3>Nombre del producto</h3>
-            <p>Descripción del producto</p>
-            <a href="/productDetail" class="button">Ver más</a>
-          </div>
-          <div class="card">
-            <img src="images/cayote.jpg" alt="Imagen del producto" />
-            <h3>Nombre del producto</h3>
-            <p>Descripción del producto</p>
-            <a href="/productDetail" class="button">Ver más</a>
-          </div>
-          <div class="card">
-            <img src="images/cayote.jpg" alt="Imagen del producto" />
-            <h3>Nombre del producto</h3>
-            <p>Descripción del producto</p>
-            <a href="/productDetail" class="button">Ver más</a>
-          </div>
-          <div class="card">
-            <img src="images/cayote.jpg" alt="Imagen del producto" />
-            <h3>Nombre del producto</h3>
-            <p>Descripción del producto</p>
-            <a href="/productDetail" class="button">Ver más</a>
-          </div>
-          <div class="card">
-            <img src="images/cayote.jpg" alt="Imagen del producto" />
-            <h3>Nombre del producto</h3>
-            <p>Descripción del producto</p>
-            <a href="/productDetail" class="button">Ver más</a>
-          </div>
-        </div>
-      </section>
-      <%- include('../partials/follow-us') %>
-    </main>
-    <%- include('../partials/footer') %>
-    <script src="js/burger.js"></script>
+        </section>
+        <%- include('../partials/follow-us') %>
+      </main>
+      <%- include('../partials/footer') %>
+        <script src="js/burger.js"></script>
   </body>
+
 </html>

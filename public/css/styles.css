@@ -231,16 +231,16 @@ main {
 .card-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 20px;
   width: 95%;
   margin: auto;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .card {
   flex: 0 0 calc(25% - 20px);
   background-color: #ffe9de;
-  margin-bottom: 20px;
   padding: 20px;
   box-sizing: border-box;
   display: flex;
@@ -251,7 +251,8 @@ main {
 
 .card img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
 }
 
 button,
@@ -437,6 +438,8 @@ form button {
 
 .img-detail img {
   width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
 }
 
 .price {
@@ -720,7 +723,7 @@ form button {
   .abrir-menu:hover {
     background-color: transparent;
   }
-  
+
   .cerrar-menu:hover {
     background-color: transparent;
     color: white;
@@ -743,7 +746,7 @@ form button {
     bottom: 0;
     background-color: #3b4930;
     padding: 1.2rem;
-    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
     transition: all 500ms;
     z-index: 10000;
   }
