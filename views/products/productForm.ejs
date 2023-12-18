@@ -24,14 +24,18 @@
               <div class="form-group">
                 <label for="productCategory">Categoría</label>
                 <select id="productCategory" name="category">
-                  <option value="Dulces enfrascados">Dulces enfrascados</option>
+                  <% categories.forEach(category => { %>
+                    <% let selected = product.category == category.id ? 'selected' : ''%>
+                    <option value="<%= category.id %>" <%= selected %> ><%= category.name %></option>option>
+                  <% }) %>
+<!--                   <option value="Dulces enfrascados">Dulces enfrascados</option>
                   <option value="Frutas en Almíbar enfrascados">
                     Frutas en Almíbar enfrascados
                   </option>
                   <option value="Dulces en Pan">Dulces en Pan</option>
                   <option value="Arropes">Arropes</option>
                   <option value="Aceite de Oliva">Aceite de Oliva</option>
-                  <option value="Vinos">Vinos</option>
+                  <option value="Vinos">Vinos</option> -->
                 </select><br />
               </div>
               <div class="form-group">

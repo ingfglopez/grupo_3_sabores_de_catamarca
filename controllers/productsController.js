@@ -1,10 +1,10 @@
-const categories = require("../data/categories.json");
 const path = require("node:path");
 const fs = require("node:fs");
 const { log } = require("node:console");
 
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+const categories = require("../data/categories.json");
 
 const productsController = {
   products: (req, res) => {
@@ -21,6 +21,7 @@ const productsController = {
     const product = {}
     res.render("products/productForm", {
       product,
+      categories,
       action: '/products',
       title: 'Nuevo producto'
     });
@@ -40,9 +41,10 @@ const productsController = {
       price,
     };
 
+    products.push(newProduct);
+    
     fs.writeFileSync('data/products.json', JSON.stringify(products), 'utf-8');
 
-    products.push(newProduct);
     res.redirect("products");
   },
 
@@ -51,6 +53,7 @@ const productsController = {
     if (req.method == 'GET') {
       res.render('products/productForm', {
         product,
+        categories,
         action: `/products/${product.id}?_method=PUT`,
         title: 'Editar producto'
       })

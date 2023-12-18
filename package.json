@@ -8,7 +8,7 @@
     "start": "node --watch app.js",
     "dev": "nodemon app.js --ignore data/products.json"
   },
-  "author": "Grupo 3 - Cristian Carrizo, Hernán Castro, Alexander Segovia, Soto Diego, Fernando Lopez",
+  "author": "Grupo 3 - Cristian Carrizo, Hernán Castro Abregu, Alexander Segovia, Soto Diego, Fernando Lopez",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.9",
