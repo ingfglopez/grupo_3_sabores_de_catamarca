@@ -17,7 +17,7 @@
     "category": "Cerveza",
     "weight": "1Lt",
     "stock": 25,
-    "price": 300.5
+    "price": 300.50
   },
   {
     "id": 3,
@@ -47,7 +47,7 @@
     "category": "Cerveza",
     "weight": "375 gr",
     "stock": 5,
-    "price": 80000
+    "price": 80000.00
   },
   {
     "id": 6,
@@ -57,7 +57,7 @@
     "category": "Cerveza",
     "weight": "350 gr",
     "stock": 25,
-    "price": 120
+    "price": 120.00
   },
   {
     "id": 77,
@@ -77,7 +77,7 @@
     "category": "Cerveza",
     "weight": "500 gr",
     "stock": 65,
-    "price": 70.5
+    "price": 70.50
   },
   {
     "id": 9,
@@ -93,19 +93,10 @@
     "id": 10,
     "name": "Chivito en Conserva",
     "description": "Carne de chivito en conserva, tradicional en la gastronomía local.",
-    "image": "image-1702897097443.jpeg",
-    "category": "Dulces enfrascados",
+    "image": "cayote.jpg",
+    "category": "Cerveza",
     "weight": "250 gr",
-    "stock": "25",
-    "price": "380.75"
-  },
-  {
-    "name": "Mermelada de Zapallo",
-    "description": "Riquisima mermelada elaborada con zapallos que crecen exclusivamente en la region andina.",
-    "image": "image-1702898469561.png",
-    "category": "Dulces enfrascados",
-    "weight": "300",
-    "stock": "30",
-    "price": "3000"
+    "stock": 25,
+    "price": 380.75
   }
 ]

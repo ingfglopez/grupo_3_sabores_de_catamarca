@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="es">
+<!-- <!DOCTYPE html>
+<html lang="es"> -->
 <%- include('../partials/head') %>
 
-  <body>
+  <!-- <body> -->
     <%- include('../partials/header') %>
-      <main>
+      <main>        
         <section class="container">
-          <h2><span>Nuevo Producto</span></h2>
+          <h2><span><%= title %></span></h2>
           <div class="form-area">
-            <form id="productForm" action="/products" method="POST" enctype="multipart/form-data">
+            <form id="productForm" action="<%= action %>" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="productName">Nombre del producto</label>
-                <input type="text" id="productName" name="name" required /><br />
+                <input type="text" id="productName" name="name" value="<%= product.name || ''%>" required /><br />
               </div>
               <div class="form-group">
                 <label for="productDescription">Detalles del Producto</label>
-                <textarea id="productDescription" name="description" required></textarea><br />
+                <textarea id="productDescription" name="description" required><%= product.description || '' %></textarea>
               </div>
               <div class="form-group">
                 <label for="productImage">Imagen</label>
@@ -36,23 +36,24 @@
               </div>
               <div class="form-group">
                 <label for="productWeight">Peso:</label>
-                <input type="text" id="productWeight" name="weight" required /><br />
+                <input type="text" id="productWeight" name="weight" value="<%= product.weight || ''%>"required /><br />
               </div>
               <div class="form-group">
                 <label for="productStock">Stock</label>
-                <input type="number" id="productStock" name="stock" /><br />
+                <input type="number" id="productStock" name="stock" value="<%= product.stock || ''%>"/><br />
               </div>
               <div class="form-group">
                 <label for="productPrice">Precio:</label>
-                <input type="number" id="productPrice" name="price" required /><br />
+                <input type="text" id="productPrice" name="price" value="<%= product.price || ''%>"required /><br />
                 <div class="form-group">
-                  <button type="submit">Agregar</button>
+                  <button type="submit">Aceptar</button>
                 </div>
             </form>
           </div>
         </section>
       </main>
-      <%- include('../partials/follow-us') %> <%- include('../partials/footer') %>
-  </body>
+      <%- include('../partials/follow-us') %> 
+      <%- include('../partials/footer') %>
+<!--   </body>
 
-</html>
+</html> -->

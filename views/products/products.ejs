@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
 <%- include('../partials/head') %>
 
-  <body>
     <%- include('../partials/header') %>
       <main class="container">
 
@@ -19,6 +16,10 @@
                   <%= producto.description %>
                 </p>
                 <a href="/products/<%= producto.id%>" class="button">Ver más</a>
+                <div>
+                  <a href="/products/<%= producto.id%>/edit" class="button">Editar</a>
+                  <a href="/products/<%= producto.id%>/delete" class="button">Borrar</a>
+                </div>
               </div>
               <% }); %>
 
@@ -27,7 +28,6 @@
         <%- include('../partials/follow-us') %>
       </main>
       <%- include('../partials/footer') %>
-        <script src="js/burger.js"></script>
-  </body>
+        
 
 </html>

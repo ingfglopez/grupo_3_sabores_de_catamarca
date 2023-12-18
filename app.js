@@ -1,18 +1,26 @@
 const express = require("express");
 const path = require('path')
+const methodOverride = require('method-override');
+
 const mainRouter = require('./routes/main');
 const productsRouter = require('./routes/products');
+
 const app = express();
 
-//app.use(express.static("public"));
+// Middlewares
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'))
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
+// Template engine
 app.set("view engine", "ejs");
 
-app.listen(3000, () => console.log("Servidor funcionando"));
-
+// Rutas
 app.use("/", mainRouter);
 app.use("/products", productsRouter);
+
+app.listen(3000, () => console.log("Servidor funcionando"));
 
 app.get("/signup", (req, res) => {
   res.render("users/signup");

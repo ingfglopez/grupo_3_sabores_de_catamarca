@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const productController = require("../controllers/productsController");
+const productsController = require("../controllers/productsController");
 
 const path = require("path");
 const multer = require("multer");
@@ -20,19 +20,19 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Create
-router.get("/create", productController.create);
-router.post("/", upload.single("image"), productController.store);
+router.get("/create", productsController.create);
+router.post("/", upload.single("image"), productsController.store);
 
 // Read
-router.get("/", productController.products);
-router.get("/:id", productController.detail);
+router.get("/", productsController.products);
+router.get("/:id", productsController.detail);
 
 // Update
-router.get("/:id/edit", productController.update);
-router.put("/:id", productController.update);
+router.get("/:id/edit", productsController.update);
+router.put("/:id", upload.single("image") , productsController.update);
 
 // Delete
-router.get(":id/delete", productController.delete);
-router.delete(":id", productController.delete);
+router.get("/:id/delete", productsController.delete);
+router.delete("/:id", productsController.delete);
 
 module.exports = router;
