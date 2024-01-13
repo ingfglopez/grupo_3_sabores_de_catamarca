@@ -1,15 +1,16 @@
 const express = require("express");
-const path = require('path')
-const methodOverride = require('method-override');
+const path = require("path");
+const methodOverride = require("method-override");
 
-const mainRouter = require('./routes/main');
-const productsRouter = require('./routes/products');
+const mainRouter = require("./routes/main");
+const productsRouter = require("./routes/products");
+const usersRouter = require("./routes/users");
 
 const app = express();
 
 // Middlewares
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(methodOverride('_method'))
+app.use(express.static(path.join(__dirname, "public")));
+app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -19,20 +20,21 @@ app.set("view engine", "ejs");
 // Rutas
 app.use("/", mainRouter);
 app.use("/products", productsRouter);
+app.use("/users", usersRouter);
 
 app.listen(3000, () => console.log("Servidor funcionando"));
 
-app.get("/signup", (req, res) => {
-  res.render("users/signup");
-});
+// app.get("/signup", (req, res) => {
+//   res.render("users/signup");
+// });
 
 app.get("/signin", (req, res) => {
   res.render("users/signin");
 });
 
-app.get("/signout", (req, res) => {
-  res.render("home");
-});
+// app.get("/signout", (req, res) => {
+//   res.render("home");
+// });
 
 /* app.get("/productDetail", (req, res) => {
   res.render("products/productDetail");

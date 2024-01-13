@@ -1,102 +1,124 @@
 [
-    {
-      "id": 1,
-      "nombre": "Carlos",
-      "apellido": "García",
-      "email": "carlos@example.com",
-      "telefono": "123-456-7890",
-      "contraseña": "clave123",
-      "categoria": "usuario",
-      "imagen": "imagen1.jpg"
-    },
-    {
-      "id": 2,
-      "nombre": "Ana",
-      "apellido": "López",
-      "email": "ana@example.com",
-      "telefono": "987-654-3210",
-      "contraseña": "contraseña456",
-      "categoria": "usuario",
-      "imagen": "imagen2.jpg"
-    },
-    {
-      "id": 3,
-      "nombre": "Juan",
-      "apellido": "Martínez",
-      "email": "juan@example.com",
-      "telefono": "111-222-3333",
-      "contraseña": "juanito789",
-      "categoria": "administrador",
-      "imagen": "imagen3.jpg"
-    },
-    {
-      "id": 4,
-      "nombre": "Laura",
-      "apellido": "Pérez",
-      "email": "laura@example.com",
-      "telefono": "555-666-7777",
-      "contraseña": "laura123",
-      "categoria": "usuario",
-      "imagen": "imagen4.jpg"
-    },
-    {
-      "id": 5,
-      "nombre": "María",
-      "apellido": "González",
-      "email": "maria@example.com",
-      "telefono": "333-999-8888",
-      "contraseña": "mariag1",
-      "categoria": "usuario",
-      "imagen": "imagen5.jpg"
-    },
-    {
-      "id": 6,
-      "nombre": "Diego",
-      "apellido": "Hernández",
-      "email": "diego@example.com",
-      "telefono": "777-888-9999",
-      "contraseña": "diegoh456",
-      "categoria": "usuario",
-      "imagen": "imagen6.jpg"
-    },
-    {
-      "id": 7,
-      "nombre": "Sofía",
-      "apellido": "Díaz",
-      "email": "sofia@example.com",
-      "telefono": "444-555-6666",
-      "contraseña": "sofia789",
-      "categoria": "usuario",
-      "imagen": "imagen7.jpg"
-    },
-    {
-      "id": 8,
-      "nombre": "Pedro",
-      "apellido": "Ramírez",
-      "email": "pedro@example.com",
-      "telefono": "222-777-4444",
-      "contraseña": "pedrito321",
-      "categoria": "usuario",
-      "imagen": "imagen8.jpg"
-    },
-    {
-      "id": 9,
-      "nombre": "Elena",
-      "apellido": "Suárez",
-      "email": "elena@example.com",
-      "telefono": "666-333-1111",
-      "contraseña": "elena567",
-      "categoria": "usuario",
-      "imagen": "imagen9.jpg"
-    },
-    {
-      "id": 10,
-      "nombre": "Alejandro",
-      "apellido": "Torres",
-      "email": "alejandro@example.com",
-      "telefono": "888-999-0000",
-      "contraseña": "ale1234",
-      "categoria": "usuario",
-      "imagen": "imagen10.jpg"
-    }
-  ]
+  {
+    "id": 1,
+    "nombre": "Carlos",
+    "apellido": "García",
+    "email": "carlos@example.com",
+    "telefono": "123-456-7890",
+    "contraseña": "clave123",
+    "categoria": "usuario",
+    "imagen": "imagen1.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Ana",
+    "apellido": "López",
+    "email": "ana@example.com",
+    "telefono": "987-654-3210",
+    "contraseña": "contraseña456",
+    "categoria": "usuario",
+    "imagen": "imagen2.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Juan",
+    "apellido": "Martínez",
+    "email": "juan@example.com",
+    "telefono": "111-222-3333",
+    "contraseña": "juanito789",
+    "categoria": "administrador",
+    "imagen": "imagen3.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Laura",
+    "apellido": "Pérez",
+    "email": "laura@example.com",
+    "telefono": "555-666-7777",
+    "contraseña": "laura123",
+    "categoria": "usuario",
+    "imagen": "imagen4.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "María",
+    "apellido": "González",
+    "email": "maria@example.com",
+    "telefono": "333-999-8888",
+    "contraseña": "mariag1",
+    "categoria": "usuario",
+    "imagen": "imagen5.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Diego",
+    "apellido": "Hernández",
+    "email": "diego@example.com",
+    "telefono": "777-888-9999",
+    "contraseña": "diegoh456",
+    "categoria": "usuario",
+    "imagen": "imagen6.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Sofía",
+    "apellido": "Díaz",
+    "email": "sofia@example.com",
+    "telefono": "444-555-6666",
+    "contraseña": "sofia789",
+    "categoria": "usuario",
+    "imagen": "imagen7.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Pedro",
+    "apellido": "Ramírez",
+    "email": "pedro@example.com",
+    "telefono": "222-777-4444",
+    "contraseña": "pedrito321",
+    "categoria": "usuario",
+    "imagen": "imagen8.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Elena",
+    "apellido": "Suárez",
+    "email": "elena@example.com",
+    "telefono": "666-333-1111",
+    "contraseña": "elena567",
+    "categoria": "usuario",
+    "imagen": "imagen9.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Alejandro",
+    "apellido": "Torres",
+    "email": "alejandro@example.com",
+    "telefono": "888-999-0000",
+    "contraseña": "ale1234",
+    "categoria": "usuario",
+    "imagen": "imagen10.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "Diego Fernando Soto",
+    "email": "diegofernandosoto@gmail.com",
+    "telefono": "3835520577",
+    "password": "135789"
+  },
+  {
+    "id": 12,
+    "nombre": "Lautaro Viillagran",
+    "email": "jperez@gmail.com",
+    "telefono": "3835849234",
+    "password": "2468"
+  },
+  {
+    "id": 13,
+    "nombre": "Juan Perez Gmonez",
+    "email": "jperezgomez@gmail.com",
+    "image": "image-1705187821085.jpg",
+    "telefono": "3835963623",
+    "password": "123456789"
+  }
+]
