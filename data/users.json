@@ -100,6 +100,16 @@
     "imagen": "imagen10.jpg"
   },
   {
+    "id": 199,
+    "nombre": "Homero",
+    "apellido": "Simpson",
+    "email": "homero@email.com",
+    "telefono": "888-999-0000",
+    "contraseña": "$2a$10$5UTZKhHffB3PkqDxFSRloOOvTWuigG1snPHXRxm0RUu65hAQWYNZG",
+    "categoria": "usuario",
+    "imagen": "imagen10.jpg"
+  },
+  {
     "id": 11,
     "nombre": "Diego Fernando Soto",
     "email": "diegofernandosoto@gmail.com",

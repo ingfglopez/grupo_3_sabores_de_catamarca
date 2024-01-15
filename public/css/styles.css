@@ -541,6 +541,11 @@ th {
   padding: 0.5rem 0.75rem;
 }
 
+.invalid-input {
+  color: red;
+  font-size: 1.2rem;
+}
+
 button {
   background-color: #6c6c6c;
   color: white;

@@ -45,17 +45,22 @@
   </button>
 
   <div class="account-cart">
-    <div class="cart">
-      <a href="/productCart">Carrito <i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
+    <% if (locals.isLogged) { %>
+      <div class="cart">
+        <a href="/productCart">Carrito <i class="fa-solid fa-cart-shopping"></i></a>
+      </div>     
+    <% } %>
     <div class="account-link">
-      <div>
-        <!-- <a href="/signup">Crear cuenta <i class="fa-solid fa-user-plus"></i></a> -->
+<!--       <div>
         <a href="/products/create"> Crear Producto <i class="fa-solid fa-circle-plus"></i></a>
-      </div>
+      </div> -->
       <div>
-        <a href="/signin">Iniciar sesi&oacute;n <i class="fa-solid fa-right-to-bracket"></i></a>
-        <a href="/signout">Cerrar sesi&oacute;n <i class="fa-solid fa-right-from-bracket"></i></a>
+        <% if (!locals.isLogged) { %>
+          <a href="/users/signin">Iniciar sesi&oacute;n <i class="fa-solid fa-right-to-bracket"></i></a>
+          <a href="/users/register">Crear cuenta <i class="fa-solid fa-user-plus"></i></a>
+        <% } else { %>
+          <a href="/users/signout">Cerrar sesi&oacute;n <i class="fa-solid fa-right-from-bracket"></i></a>         
+        <% } %>
       </div>
     </div>
   </div>
