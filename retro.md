@@ -1,3 +1,33 @@
+# Retrospectiva – 5° Sprint - Grupo 3 - Sabores de Catamarca
+
+## ⭐ Starfish retrospective
+
+### ▶️ Start Doing:
+
+- Revisiones del cumplimiento de los requerimientos de cada Sprint realizado.
+- Concreción de tareas o actividades que quedaron pendiente.
+- Revisión y adaptación de las vistas en función del desarrollo de la aplicación.
+- Realizar una evaluación poniéndonos en el papel del supuesto cliente para verificar el cumplimiento de los requerimientos de la aplicación.
+
+### 🚀 More of:
+
+- Incrementar la frecuencia de reuniones del grupo.
+- Incrementar el uso del tablero kanban (Trello)
+
+### ♾️ Keep Doing:
+
+- Mantener las reuniones del grupo.
+- Asignación en función de las habilidades de cada integrante del grupo.
+- Continuar con el apoyo, la motivación y retroalimentación entre los miembros del equipo.
+
+### ⤵️ Less of:
+
+- Dentro de las actividades llevadas a cabo, no hemos determinado acciones o cosas que no aporten valor.
+
+### 🚫 Stop Doing:
+
+- Dentro de las actividades llevadas a cabo, no hemos determinado acciones o cosas que necesitemos eliminar o dejar de hacer.
+
 # Retrospectiva - 2° y 3° Sprint - Grupo 3 - Sabores de Catamarca
 
 ## ⭐ Starfish retrospective
