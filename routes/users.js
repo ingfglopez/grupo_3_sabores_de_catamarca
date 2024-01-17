@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const usersController = require("../controllers/usersController");
-const validateLogin = require('../middlewares/validateLogin');
-const isLogged = require('../middlewares/isLogged');
+const validations = require("../middlewares/validateRegisterMiddleware");
+const validateLogin = require("../middlewares/validateLogin");
+const isLogged = require("../middlewares/isLogged");
 const isGuest = require("../middlewares/isGuest");
 
 const path = require("path");
@@ -26,18 +27,18 @@ const upload = multer({ storage: storage });
 router.get("/register", isGuest, usersController.register);
 
 // Form de login
-router.get('/signin', isGuest, usersController.signin);
+router.get("/signin", isGuest, usersController.signin);
 
 // Procesar el login
-router.post('/signin', validateLogin, usersController.signin)
+router.post("/signin", validateLogin, usersController.signin);
 
 //Procesar Formulario
-router.post("/", upload.single("image"), usersController.process);
+router.post("/", upload.single("image"), validations, usersController.process);
 
 // Ruta a la pagina de perfil del usuario
-router.get('/profile', isLogged, usersController.profile);
+router.get("/profile", isLogged, usersController.profile);
 
 // Ruta para desloguear
-router.get('/signout', isLogged, usersController.signout);
+router.get("/signout", isLogged, usersController.signout);
 
 module.exports = router;

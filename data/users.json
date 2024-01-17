@@ -108,27 +108,5 @@
     "contraseña": "$2a$10$5UTZKhHffB3PkqDxFSRloOOvTWuigG1snPHXRxm0RUu65hAQWYNZG",
     "categoria": "usuario",
     "imagen": "imagen10.jpg"
-  },
-  {
-    "id": 11,
-    "nombre": "Diego Fernando Soto",
-    "email": "diegofernandosoto@gmail.com",
-    "telefono": "3835520577",
-    "password": "135789"
-  },
-  {
-    "id": 12,
-    "nombre": "Lautaro Viillagran",
-    "email": "jperez@gmail.com",
-    "telefono": "3835849234",
-    "password": "2468"
-  },
-  {
-    "id": 13,
-    "nombre": "Juan Perez Gmonez",
-    "email": "jperezgomez@gmail.com",
-    "image": "image-1705187821085.jpg",
-    "telefono": "3835963623",
-    "password": "123456789"
   }
 ]
