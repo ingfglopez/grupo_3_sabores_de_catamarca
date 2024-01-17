@@ -39,7 +39,7 @@ const usersController = {
     }
 
     const nombreImage = req.file.filename;
-    const { nombre, email, telefono, password } = req.body;
+    const { nombre, email, telefono } = req.body;
     const newUser = {
       id: users.length + 1,
       nombre,
@@ -75,7 +75,7 @@ const usersController = {
       if (userToLogin) {
         const isOkThePassword = bcryptjs.compareSync(
           req.body.password,
-          userToLogin.contraseña
+          userToLogin.password
         );
         if (isOkThePassword) {
           delete userToLogin.password;

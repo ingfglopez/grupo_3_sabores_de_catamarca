@@ -108,5 +108,13 @@
     "contraseña": "$2a$10$5UTZKhHffB3PkqDxFSRloOOvTWuigG1snPHXRxm0RUu65hAQWYNZG",
     "categoria": "usuario",
     "imagen": "imagen10.jpg"
+  },
+  {
+    "id": 12,
+    "nombre": "Moe Szyslak",
+    "email": "moe@email.com",
+    "image": "image-1705517580125.png",
+    "telefono": "123456",
+    "password": "$2a$10$UlO9zLMw7ukjoAgvM5Gk7uco3XvKImBwCK6l9asjkQwXSmjMlJUd6"
   }
 ]
