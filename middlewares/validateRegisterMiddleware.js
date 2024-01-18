@@ -15,7 +15,7 @@ module.exports = [
   body("password").notEmpty().withMessage("Debes que escribir una contraseña"),
   body("image").custom((value, { req }) => {
     let file = req.file;
-    let acceptedExtensions = [".jpg", ".png", ".gif"];
+    let acceptedExtensions = [".jpg", ".png", ".gif", ".jpeg"];
 
     if (!file) {
       throw new Error("Debes subir una imagen");

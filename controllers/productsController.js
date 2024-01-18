@@ -57,10 +57,16 @@ const productsController = {
         title: "Editar producto",
       });
     } else {
-      const nameImage = req.file ? req.file.filename : "no-disponible.png";
-
+      const indiceProducto = products.findIndex(
+        (producto) => producto.id == req.params.id
+      );
+      const nameImage = req.file
+        ? req.file.filename
+        : products[indiceProducto].image;
       const { name, description, category, weight, stock, price } = req.body;
+      const id = Number(req.params.id);
       const product = {
+        id,
         name,
         description,
         image: nameImage,
@@ -70,9 +76,6 @@ const productsController = {
         price,
       };
 
-      const indiceProducto = products.findIndex(
-        (producto) => producto.id == req.params.id
-      );
       /* products[indiceProducto].name = product.name;
       products[indiceProducto].description = product.description;
       products[indiceProducto].image = product.image;

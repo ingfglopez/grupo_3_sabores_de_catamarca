@@ -116,5 +116,13 @@
     "image": "image-1705517580125.png",
     "telefono": "123456",
     "password": "$2a$10$UlO9zLMw7ukjoAgvM5Gk7uco3XvKImBwCK6l9asjkQwXSmjMlJUd6"
+  },
+  {
+    "id": 13,
+    "nombre": "Mario Jose Sosa",
+    "email": "mariososa@gmail.com",
+    "image": "image-1705533576902.jpeg",
+    "telefono": "3835693632",
+    "password": "$2a$10$017gtu/4PQTWZLE0bqBkcuJCTFqf0t57ehuPqHQMTNoGcfbTvYNde"
   }
 ]
