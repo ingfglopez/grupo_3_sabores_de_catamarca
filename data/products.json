@@ -4,10 +4,11 @@
     "name": "Dulce de Higo",
     "description": "Dulce típico elaborado con higos de la región.",
     "image": "dulce_de_higos.jpg",
-    "category": "Cerveza",
+    "category_id": "Cerveza",
     "weight": "500 gr",
     "stock": 25,
-    "price": 150.99
+    "price": 150.99,
+    "ultimo_actu_precio": ""
   },
   {
     "id": 2,

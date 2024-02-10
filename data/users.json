@@ -119,10 +119,10 @@
   },
   {
     "id": 13,
-    "nombre": "Mario Jose Sosa",
-    "email": "mariososa@gmail.com",
-    "image": "image-1705533576902.jpeg",
-    "telefono": "3835693632",
-    "password": "$2a$10$017gtu/4PQTWZLE0bqBkcuJCTFqf0t57ehuPqHQMTNoGcfbTvYNde"
+    "username",
+    "password": "$2a$10$017gtu/4PQTWZLE0bqBkcuJCTFqf0t57ehuPqHQMTNoGcfbTvYNde",
+    "rol_id": 1,
+    "persona_id": 
+
   }
 ]

@@ -1,0 +1,18 @@
+[
+  {
+    "sale_id": 1,
+    "product_id": 195,
+    "units": 3,
+    "price": 12300.00
+  },
+  {
+    "sale_id": 1,
+    "product_id": 811,
+    "price": 6000.00
+  },
+  {
+    "sale_id": 2,
+    "product_id": 1301,
+    "price": 7410.50
+  }
+]
