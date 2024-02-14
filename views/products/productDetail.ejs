@@ -16,11 +16,11 @@
         </div>
         <section class="detail container">
           <div class="img-detail">
-            <img src="/images/<%=data.image%>" alt="Nombre del Producto" />
+            <img src="/images/<%= product.image %>" alt="Nombre del Producto" />
           </div>
           <div class="description-detail">
             <h3>
-              <%=data.name%>
+              <%= product.name %>
             </h3>
             <div class="product-ranking">
               <i class="fa-solid fa-star"></i>
@@ -30,12 +30,12 @@
               <i class="fa-solid fa-star"></i>
             </div>
             <div class="price">
-              $ <%=data.price%>
+              $ <%= product.price %>
             </div>
             <h4>Medios de Pago</h4>
             <h4>Detalles del producto</h4>
             <p>
-              <%= data.description %>
+              <%=  product.description  %>
             </p>
             <a href="/productCart" class="button">Agregar al Carrito</a>
           </div>

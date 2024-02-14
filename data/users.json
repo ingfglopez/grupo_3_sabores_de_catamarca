@@ -119,10 +119,9 @@
   },
   {
     "id": 13,
-    "username",
+    "username": "",
     "password": "$2a$10$017gtu/4PQTWZLE0bqBkcuJCTFqf0t57ehuPqHQMTNoGcfbTvYNde",
     "rol_id": 1,
-    "persona_id": 
-
+    "persona_id": 7
   }
 ]

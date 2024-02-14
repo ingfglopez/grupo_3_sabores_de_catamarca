@@ -6,19 +6,19 @@
         <section class="featured-products container">
           <h2><span>Productos</span></h2>
           <div class="card-grid">
-            <% data.forEach( producto=> {%>
+            <% products.forEach( product => {%>
               <div class="card">
-                <img src="/images/<%=producto.image%>" alt="Imagen del producto" />
+                <img src="/images/<%=product.image%>" alt="Imagen del producto" />
                 <h3>
-                  <%= producto.name %>
+                  <%= product.name %>
                 </h3>
                 <p>
-                  <%= producto.description %>
+                  <%= product.description %>
                 </p>
-                <a href="/products/<%= producto.id%>" class="button">Ver más</a>
+                <a href="/products/<%= product.id%>" class="button">Ver más</a>
                 <div>
-                  <a href="/products/<%= producto.id%>/edit" class="button">Editar</a>
-                  <a href="/products/<%= producto.id%>/delete" class="button">Borrar</a>
+                  <a href="/products/<%= product.id%>/edit" class="button">Editar</a>
+                  <a href="/products/<%= product.id%>/delete" class="button">Borrar</a>
                 </div>
               </div>
               <% }); %>
