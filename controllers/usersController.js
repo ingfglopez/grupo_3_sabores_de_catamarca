@@ -2,9 +2,10 @@ const path = require("node:path");
 const fs = require("node:fs");
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
+const db = require('../database/models/index');
 
-const userFilePath = path.join(__dirname, "../data/users.json");
-const users = JSON.parse(fs.readFileSync(userFilePath, "utf-8"));
+//const userFilePath = path.join(__dirname, "../data/users.json");
+//const users = JSON.parse(fs.readFileSync(userFilePath, "utf-8"));
 
 const usersController = {
   register: (req, res) => {
@@ -69,58 +70,69 @@ const usersController = {
 
       // Comprobamos que el email no se encuentre registrado
       //const userToLogin = User.findByField('email', req.body.email);
-      const allUsers = JSON.parse(fs.readFileSync("data/users.json", "utf-8"));
-      const userToLogin = allUsers.find((user) => user.email == req.body.email);
+      //const allUsers = JSON.parse(fs.readFileSync("data/users.json", "utf-8"));
+      //const userToLogin = allUsers.find((user) => user.email == req.body.email);
 
-      if (userToLogin) {
-        const isOkThePassword = bcryptjs.compareSync(
-          req.body.password,
-          userToLogin.password
-        );
-        if (isOkThePassword) {
-          delete userToLogin.password;
+      db.User.findAll({
+        where: {
+          username: req.body.username
+        }
+      }).then(users => {
 
-          // Guardo el usuario en la session
-          req.session.userLogged = userToLogin;
+        const userFromDB = users[0].dataValues;
+        console.log('User from DB ', userFromDB);
+        if (userFromDB) {
 
-          // Si se marco "Recordar usuario", guardamos una cookie
-          if (req.body.remember_user) {
-            // Vamos a recordar el usuario quince minutos
-            res.cookie("emailuser", req.body.email, { maxAge: 1000 * 60 * 15 });
+          const isOkThePassword = bcryptjs.compareSync(
+            req.body.password,
+            userFromDB.password
+          );
+            
+          //console.log(isOkThePassword);
+
+          if (isOkThePassword) {
+            // Guardo el usuario en la session
+            delete userFromDB.password;
+            req.session.userLogged = userFromDB;
+            //console.log('User logged ', req.session.userLogged);
+            
+            // Si se marco "Recordar usuario", guardamos una cookie
+            if (req.body.remember_user) {
+              // Vamos a recordar el usuario quince minutos
+              res.cookie("username", req.body.username, { maxAge: 1000 * 60 * 15 });
+            }
+            
+            return res.redirect("/users/profile");
           }
-
-          return res.redirect("/users/profile");
         }
 
-        // Si el password no es correcto, volvemos al form de login con un mensaje de error, lo enviamos en el campo email para no dar pistas de la credencial incorrecta
-        return res.render("users/signin", {
+        // Si el password y/o usuario no son correctos, volvemos al form de login con un mensaje de error, lo enviamos en el campo username para no dar pistas de la credencial incorrecta
+        res.render("users/signin", {
           errors: {
-            email: {
+            username: {
               msg: "Las credenciales son incorrectas",
             },
           },
         });
-      }
 
-      return res.render("users/login", {
-        errors: {
-          email: {
-            msg: "Las credenciales son incorrectas",
-          },
-        },
-      });
+      }).catch(error => {
+        //console.log('ERROR FINDALL');
+        //console.log(error);
+        res.send(error);
+      })
     }
   },
 
   profile: (req, res) => {
     //console.log(req.cookies.emailuser);
+    console.log(req.session.userLogged);
     res.render("users/profile", {
       user: req.session.userLogged,
     });
   },
 
   signout: (req, res) => {
-    res.clearCookie("emailuser");
+    res.clearCookie("username");
     req.session.destroy();
     return res.redirect("/");
   },

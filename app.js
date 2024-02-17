@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 
 const mainRouter = require("./routes/main");
 const productsRouter = require("./routes/products");
-const usersRouter = require("./routes/users");
+const usersRouter = require("./routes/usersRouter");  
 
 const emailInCookie = require('./middlewares/emailInCookie');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');

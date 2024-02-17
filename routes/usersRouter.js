@@ -27,7 +27,7 @@ const upload = multer({ storage: storage });
 router.get("/register", isGuest, usersController.register);
 
 // Form de login
-router.get("/signin", isGuest, usersController.signin);
+router.get("/signin", usersController.signin);
 
 // Procesar el login
 router.post("/signin", validateLogin, usersController.signin);

@@ -5,8 +5,8 @@
   <body>
     <%- include('../partials/header') %>
       <section class="container">
-        <h2><span>Pagina de Perfil de <%=user.nombre%></span></h2>
-        <img src="/images/users/<%= user.image %>" alt="">
+        <h2><span>Pagina de Perfil de <%= user.username %></span></h2>
+        <!-- <img src="/images/users/<%= //user.image %>" alt=""> -->
       </section>
       <%- include('../partials/follow-us') %> <%- include('../partials/footer') %>
   </body>

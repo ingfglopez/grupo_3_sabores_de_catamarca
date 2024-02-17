@@ -10,11 +10,12 @@
         <div class="form-area">
           <form action="#" method="post" novalidate>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" name="email" id="email" value="<%= locals.oldData && oldData.email %>" />
-              <% if (locals.errors && errors.email) { %>
+              <!-- <label for="email">Email</label> -->
+              <label for="username">Usuario</label>
+              <input type="text" name="username" id="username" value="<%= locals.oldData && oldData.username %>" autofocus />
+              <% if (locals.errors && errors.username) { %>
                 <p class="invalid-input">
-                  <%= errors.email.msg %>
+                  <%= errors.username.msg %>
                 </p>
                 <% } %>
             </div>
