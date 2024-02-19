@@ -2,7 +2,7 @@ const path = require("node:path");
 const fs = require("node:fs");
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
-const db = require('../database/models/index');
+const db = require("../database/models/index");
 
 //const userFilePath = path.join(__dirname, "../data/users.json");
 //const users = JSON.parse(fs.readFileSync(userFilePath, "utf-8"));
@@ -25,10 +25,12 @@ const usersController = {
 
     //revisamos que el email no este ya registrado
 
-    const allUsers = JSON.parse(fs.readFileSync("data/users.json", "utf-8"));
-    let userInDB = allUsers.find((user) => user.email == req.body.email);
+    //    const allUsers = JSON.parse(fs.readFileSync("data/users.json", "utf-8"));
+    //     let userInDB = allUsers.find((user) => user.email == req.body.email);
 
-    if (userInDB) {
+    let userInDB = db.Person.findOne({ where: { email: email } });
+
+    if (!userInDB) {
       return res.render("users/signup", {
         errors: {
           email: {
@@ -40,18 +42,48 @@ const usersController = {
     }
 
     const nombreImage = req.file.filename;
-    const { nombre, email, telefono } = req.body;
-    const newUser = {
-      id: users.length + 1,
+    const { nombre, username, email, telefono } = req.body;
+
+    const newPerson = {
       nombre,
       email,
       image: nombreImage,
-      telefono,
-      password: bcryptjs.hashSync(req.body.password, 10),
+      phonenumber: telefono,
     };
-    users.push(newUser);
-    fs.writeFileSync("data/users.json", JSON.stringify(users), "utf-8");
-    res.redirect("users/signin");
+
+    // users.push(newUser);
+    // fs.writeFileSync("data/users.json", JSON.stringify(users), "utf-8");
+    // res.redirect("users/signin");
+
+    // db.User.create(newUser)
+    //   .then((user) => {
+    //     console.log("Usuario creado", user);
+    //     res.redirect("users/signin");
+    //   })
+    //   .catch((error) => {
+    //     res.send(error);
+    //   });
+
+    db.Person.create(newPerson)
+      .then((person) => {
+        console.log("Persona creada", person);
+        const newUser = {
+          username,
+          password: bcryptjs.hashSync(req.body.password, 10),
+          person_id: person.id,
+          rol_id: 1,
+        };
+        return db.User.create(newUser);
+      })
+
+      .then((user) => {
+        console.log("Usuario creado", user);
+        res.redirect("users/signin");
+      })
+
+      .catch((error) => {
+        res.send(error);
+      });
   },
 
   signin: (req, res) => {
@@ -75,51 +107,52 @@ const usersController = {
 
       db.User.findAll({
         where: {
-          username: req.body.username
-        }
-      }).then(users => {
-
-        const userFromDB = users[0].dataValues;
-        console.log('User from DB ', userFromDB);
-        if (userFromDB) {
-
-          const isOkThePassword = bcryptjs.compareSync(
-            req.body.password,
-            userFromDB.password
-          );
-            
-          //console.log(isOkThePassword);
-
-          if (isOkThePassword) {
-            // Guardo el usuario en la session
-            delete userFromDB.password;
-            req.session.userLogged = userFromDB;
-            //console.log('User logged ', req.session.userLogged);
-            
-            // Si se marco "Recordar usuario", guardamos una cookie
-            if (req.body.remember_user) {
-              // Vamos a recordar el usuario quince minutos
-              res.cookie("username", req.body.username, { maxAge: 1000 * 60 * 15 });
-            }
-            
-            return res.redirect("/users/profile");
-          }
-        }
-
-        // Si el password y/o usuario no son correctos, volvemos al form de login con un mensaje de error, lo enviamos en el campo username para no dar pistas de la credencial incorrecta
-        res.render("users/signin", {
-          errors: {
-            username: {
-              msg: "Las credenciales son incorrectas",
-            },
-          },
-        });
-
-      }).catch(error => {
-        //console.log('ERROR FINDALL');
-        //console.log(error);
-        res.send(error);
+          username: req.body.username,
+        },
       })
+        .then((users) => {
+          const userFromDB = users[0].dataValues;
+          console.log("User from DB ", userFromDB);
+          if (userFromDB) {
+            const isOkThePassword = bcryptjs.compareSync(
+              req.body.password,
+              userFromDB.password
+            );
+
+            //console.log(isOkThePassword);
+
+            if (isOkThePassword) {
+              // Guardo el usuario en la session
+              delete userFromDB.password;
+              req.session.userLogged = userFromDB;
+              //console.log('User logged ', req.session.userLogged);
+
+              // Si se marco "Recordar usuario", guardamos una cookie
+              if (req.body.remember_user) {
+                // Vamos a recordar el usuario quince minutos
+                res.cookie("username", req.body.username, {
+                  maxAge: 1000 * 60 * 15,
+                });
+              }
+
+              return res.redirect("/users/profile");
+            }
+          }
+
+          // Si el password y/o usuario no son correctos, volvemos al form de login con un mensaje de error, lo enviamos en el campo username para no dar pistas de la credencial incorrecta
+          res.render("users/signin", {
+            errors: {
+              username: {
+                msg: "Las credenciales son incorrectas",
+              },
+            },
+          });
+        })
+        .catch((error) => {
+          //console.log('ERROR FINDALL');
+          //console.log(error);
+          res.send(error);
+        });
     }
   },
 

@@ -1,42 +1,45 @@
 module.exports = (sequelize, dataTypes) => {
-
-  const alias = 'User';
+  const alias = "User";
 
   const cols = {
     id: {
       type: dataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     username: {
-      type: dataTypes.STRING(25)
+      type: dataTypes.STRING(25),
     },
     password: {
-      type: dataTypes.STRING(100)
+      type: dataTypes.STRING(100),
     },
     rol_id: {
-      type: dataTypes.INTEGER
+      type: dataTypes.INTEGER,
     },
     person_id: {
       type: dataTypes.INTEGER,
       allowNull: true,
-      defaultValue: null
-    }
-  }
+      defaultValue: null,
+    },
+  };
 
   const config = {
     timestamps: false,
-    tableName: "users"
-  }
+    tableName: "users",
+  };
 
   const User = sequelize.define(alias, cols, config);
 
   User.associate = (models) => {
-
     User.belongsTo(models.Rol, {
-      as: 'rol',
-      foreignKey: 'rol_id'
-    })
+      as: "rol",
+      foreignKey: "rol_id",
+    });
+
+    User.hasOne(models.Person, {
+      foreignKey: "person_id",
+      as: "person",
+    });
 
     /*
     Movie.belongsToMany(models.Actor, {
@@ -50,4 +53,4 @@ module.exports = (sequelize, dataTypes) => {
   };
 
   return User;
-}
+};

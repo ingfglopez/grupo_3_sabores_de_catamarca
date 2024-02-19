@@ -22,6 +22,19 @@
                 </div>
                 <% } %>
             </div>
+
+            <div class="form-group">
+              <label>Nombre de Usuario</label>
+              <input type="text" name="username"
+                class="form-control <%= locals.errors && errors.username ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.username : null %>">
+              <% if (locals.errors && errors.username) { %>
+                <div class="invalid-input">
+                  <%= errors.username.msg %>
+                </div>
+                <% } %>
+            </div>
+
             <div class="form-group">
               <label>Email</label>
               <input type="text" name="email"

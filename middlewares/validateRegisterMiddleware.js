@@ -5,6 +5,9 @@ module.exports = [
   body("nombre")
     .notEmpty()
     .withMessage("Debes escribir tus Nombres y Apellido "),
+  body("username")
+    .notEmpty()
+    .withMessage("Debes escribir tu nombre de Usuario "),
   body("email")
     .notEmpty()
     .withMessage("Debes escribir un correo electrónico")
