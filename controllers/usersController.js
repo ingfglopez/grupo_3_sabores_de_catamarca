@@ -58,6 +58,7 @@ const usersController = {
     if (req.method == "GET") {
       res.render("users/signin");
     } else if (req.method == "POST") {
+
       const errors = validationResult(req);
 
       // Si hay errores mostamos nuevamente el form con los mensajes y los datos ingresados
@@ -78,30 +79,27 @@ const usersController = {
           username: req.body.username
         }
       }).then(users => {
-
-        const userFromDB = users[0].dataValues;
-        console.log('User from DB ', userFromDB);
-        if (userFromDB) {
+        if (users[0]) {
+          console.log('users[0]', users[0]);
+          
+          const userFromDB = users[0].dataValues;
 
           const isOkThePassword = bcryptjs.compareSync(
             req.body.password,
             userFromDB.password
           );
             
-          //console.log(isOkThePassword);
-
           if (isOkThePassword) {
             // Guardo el usuario en la session
             delete userFromDB.password;
             req.session.userLogged = userFromDB;
-            //console.log('User logged ', req.session.userLogged);
-            
+
             // Si se marco "Recordar usuario", guardamos una cookie
             if (req.body.remember_user) {
               // Vamos a recordar el usuario quince minutos
               res.cookie("username", req.body.username, { maxAge: 1000 * 60 * 15 });
             }
-            
+
             return res.redirect("/users/profile");
           }
         }
@@ -117,7 +115,7 @@ const usersController = {
 
       }).catch(error => {
         //console.log('ERROR FINDALL');
-        //console.log(error);
+        console.log(error);
         res.send(error);
       })
     }
@@ -125,7 +123,7 @@ const usersController = {
 
   profile: (req, res) => {
     //console.log(req.cookies.emailuser);
-    console.log(req.session.userLogged);
+    console.log('User Logged in Session', req.session.userLogged);
     res.render("users/profile", {
       user: req.session.userLogged,
     });
