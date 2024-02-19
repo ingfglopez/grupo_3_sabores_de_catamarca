@@ -4,6 +4,8 @@ const productsController = require("../controllers/productsController");
 
 const path = require("path");
 const multer = require("multer");
+const isLogged = require("../middlewares/isLogged");
+const isAdmin = require("../middlewares/isAdmin");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -20,19 +22,46 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Create
-router.get("/create", productsController.create);
-router.post("/", upload.single("image"), productsController.store);
+router.get("/create", [
+  isLogged,
+  isAdmin
+], productsController.create);
+
+router.post("/", [
+  isLogged,
+  isAdmin,
+  upload.single("image")
+], productsController.store);
 
 // Read
-router.get("/", productsController.products);
+router.get("/", [
+  isLogged,
+  isAdmin
+], productsController.products);
+
 router.get("/:id", productsController.detail);
 
 // Update
-router.get("/:id/edit", productsController.update);
-router.put("/:id", upload.single("image") , productsController.update);
+router.get("/:id/edit", [
+  isLogged,
+  isAdmin
+], productsController.update);
+
+router.put("/:id", [
+  isLogged,
+  isAdmin,
+  upload.single("image")
+] , productsController.update);
 
 // Delete
-router.get("/:id/delete", productsController.delete);
-router.delete("/:id", productsController.delete);
+router.get("/:id/delete", [
+  isLogged,
+  isAdmin
+], productsController.delete);
+
+router.delete("/:id", [
+  isLogged,
+  isAdmin  
+], productsController.delete);
 
 module.exports = router;

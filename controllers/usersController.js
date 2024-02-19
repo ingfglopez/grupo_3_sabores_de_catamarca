@@ -111,21 +111,20 @@ const usersController = {
         },
       })
         .then((users) => {
-          const userFromDB = users[0].dataValues;
-          console.log("User from DB ", userFromDB);
-          if (userFromDB) {
+          if (users[0]) {
+            console.log("users[0]", users[0]);
+
+            const userFromDB = users[0].dataValues;
+
             const isOkThePassword = bcryptjs.compareSync(
               req.body.password,
               userFromDB.password
             );
 
-            //console.log(isOkThePassword);
-
             if (isOkThePassword) {
               // Guardo el usuario en la session
               delete userFromDB.password;
               req.session.userLogged = userFromDB;
-              //console.log('User logged ', req.session.userLogged);
 
               // Si se marco "Recordar usuario", guardamos una cookie
               if (req.body.remember_user) {
@@ -150,7 +149,7 @@ const usersController = {
         })
         .catch((error) => {
           //console.log('ERROR FINDALL');
-          //console.log(error);
+          console.log(error);
           res.send(error);
         });
     }
@@ -158,7 +157,7 @@ const usersController = {
 
   profile: (req, res) => {
     //console.log(req.cookies.emailuser);
-    console.log(req.session.userLogged);
+    console.log("User Logged in Session", req.session.userLogged);
     res.render("users/profile", {
       user: req.session.userLogged,
     });

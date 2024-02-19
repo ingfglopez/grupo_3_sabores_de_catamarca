@@ -8,7 +8,7 @@ const mainRouter = require("./routes/main");
 const productsRouter = require("./routes/products");
 const usersRouter = require("./routes/usersRouter");  
 
-const emailInCookie = require('./middlewares/emailInCookie');
+const usernameInCookie = require('./middlewares/usernameInCookie');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 const app = express();
@@ -28,7 +28,7 @@ app.use(session({
 }));
 
 // Determinar si se recordo al usuario al momento de loguear
-app.use(emailInCookie);
+app.use(usernameInCookie);
 
 // Para sabe en las templates si hay un usuario logueado
 app.use(userLoggedMiddleware);
