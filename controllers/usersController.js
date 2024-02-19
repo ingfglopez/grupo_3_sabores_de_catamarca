@@ -28,27 +28,28 @@ const usersController = {
     //    const allUsers = JSON.parse(fs.readFileSync("data/users.json", "utf-8"));
     //     let userInDB = allUsers.find((user) => user.email == req.body.email);
 
-    let userInDB = db.Person.findOne({ where: { email: email } });
+    // let userInDB = db.Person.findOne({ where: { email: req.body.email } });
 
-    if (!userInDB) {
-      return res.render("users/signup", {
-        errors: {
-          email: {
-            msg: "Este email ya está registrado",
-          },
-        },
-        oldData: req.body,
-      });
-    }
+    // if (!userInDB) {
+    //   return res.render("users/signup", {
+    //     errors: {
+    //       email: {
+    //         msg: "Este email ya está registrado",
+    //       },
+    //     },
+    //     oldData: req.body,
+    //   });
+    // }
 
     const nombreImage = req.file.filename;
     const { nombre, username, email, telefono } = req.body;
 
     const newPerson = {
-      nombre,
+      name: nombre,
       email,
       image: nombreImage,
       phonenumber: telefono,
+      state_id: 0,
     };
 
     // users.push(newUser);
