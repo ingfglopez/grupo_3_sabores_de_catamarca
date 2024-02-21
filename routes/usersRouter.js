@@ -41,4 +41,7 @@ router.get("/profile", isLogged, usersController.profile);
 // Ruta para desloguear
 router.get("/signout", isLogged, usersController.signout);
 
+// Ruta Lista de Usuarios
+router.get("/list", usersController.list);
+
 module.exports = router;

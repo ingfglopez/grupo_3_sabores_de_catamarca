@@ -36,9 +36,9 @@ module.exports = (sequelize, dataTypes) => {
       foreignKey: "rol_id",
     });
 
-    User.hasOne(models.Person, {
-      foreignKey: "person_id",
+    User.belongsTo(models.Person, {
       as: "person",
+      foreignKey: "person_id",
     });
 
     /*

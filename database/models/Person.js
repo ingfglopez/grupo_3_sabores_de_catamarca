@@ -45,7 +45,7 @@ module.exports = (sequelize, dataTypes) => {
   const Person = sequelize.define(alias, cols, config);
 
   Person.associate = (models) => {
-    Person.hasOne(models.User, {
+    Person.hasMany(models.User, {
       foreignKey: "person_id",
       as: "user",
     });

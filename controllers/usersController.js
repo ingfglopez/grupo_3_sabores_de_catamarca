@@ -49,7 +49,7 @@ const usersController = {
       email,
       image: nombreImage,
       phonenumber: telefono,
-      state_id: 0,
+      state_id: 1,
     };
 
     // users.push(newUser);
@@ -168,6 +168,24 @@ const usersController = {
     res.clearCookie("username");
     req.session.destroy();
     return res.redirect("/");
+  },
+
+  //Listar Usuarios
+
+  list: (req, res) => {
+    db.User.findAll({
+      include: [
+        {
+          association: "person",
+        },
+      ],
+    })
+      .then((users) => {
+        res.render("users/list", { users });
+      })
+      .catch((error) => {
+        res.send(error);
+      });
   },
 };
 

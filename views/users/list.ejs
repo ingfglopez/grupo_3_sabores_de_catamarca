@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+
+  <body>
+    <%- include('../partials/header') %>
+      <section class="container">
+        <h2><span>Lista de Usuarios</span></h2>
+        <% users.forEach(user=> { %>
+          <div>
+            <h4>Usuario: <%= user.username %>
+            </h4>
+            <p>Nombre: <%= user.person.name %>
+            </p>
+            <p>Email: <%= user.person.email %>
+            </p>
+          </div>
+          <br>
+          <% }) %>
+      </section>
+      <%- include('../partials/follow-us') %> <%- include('../partials/footer') %>
+  </body>
+
+</html>
