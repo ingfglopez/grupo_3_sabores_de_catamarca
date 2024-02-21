@@ -106,7 +106,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `image`, `category_id`, `stock`, `price`, `last_price_change_date`, `weight`) VALUES
-(1, 'Vino Patero', 'Vino elaborado con uvas de la zona', NULL, 3, 10, 3000, NULL, 0),
+(1, 'Vino Patero', 'Vino elaborado con uvas de la zona', 'image-1702897388234.jpg', 3, 10, 3000, NULL, 0),
 (3, 'Mate de Palo Santo', 'Mate de Palo Santo con insertos de plata', 'image-1707837263129.jpg', 5, 7, 7000, NULL, 270);
 
 -- --------------------------------------------------------
