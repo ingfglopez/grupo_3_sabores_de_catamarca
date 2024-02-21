@@ -4,21 +4,36 @@
 
   <body>
     <%- include('../partials/header') %>
-      <section class="container">
-        <h2><span>Lista de Usuarios</span></h2>
-        <% users.forEach(user=> { %>
-          <div>
-            <h4>Usuario: <%= user.username %>
-            </h4>
-            <p>Nombre: <%= user.person.name %>
-            </p>
-            <p>Email: <%= user.person.email %>
-            </p>
-          </div>
-          <br>
-          <% }) %>
-      </section>
-      <%- include('../partials/follow-us') %> <%- include('../partials/footer') %>
+      <main>
+        <section class="container">
+          <h2><span>Lista de Usuarios</span></h2>
+          <% users.forEach(user=> { %>
+            <div>
+              <div class="client">
+                <div class="left-part">
+                  <img src="/images/users/<%= user.person.image %>" alt="User Image">
+                  <div class="user-info">
+                    <h3>
+                      <%= user.person.name %>
+                    </h3>
+                    <p>
+                      <%= user.person.email %>
+                    </p>
+                  </div>
+                </div>
+                <div class="right-part">
+                  <button>Detalles</button>
+                  <button>Borrar</button>
+                </div>
+              </div>
+
+            </div>
+            <br>
+            <% }) %>
+        </section>
+        <%- include('../partials/follow-us') %>
+      </main>
+      <%- include('../partials/footer') %>
   </body>
 
 </html>

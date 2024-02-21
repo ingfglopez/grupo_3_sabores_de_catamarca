@@ -9,7 +9,13 @@ const db = require("../database/models/index");
 
 const usersController = {
   register: (req, res) => {
-    res.render("users/signup");
+    db.State.findAll()
+      .then((states) => {
+        res.render("users/signup", { states });
+      })
+      .catch((error) => {
+        res.send(error);
+      });
   },
 
   process: (req, res) => {
@@ -30,7 +36,7 @@ const usersController = {
 
     // let userInDB = db.Person.findOne({ where: { email: req.body.email } });
 
-    // if (!userInDB) {
+    // if (userInDB) {
     //   return res.render("users/signup", {
     //     errors: {
     //       email: {
@@ -42,14 +48,17 @@ const usersController = {
     // }
 
     const nombreImage = req.file.filename;
-    const { nombre, username, email, telefono } = req.body;
+    const { nombre, username, email, telefono, state_id, zipcode, address } =
+      req.body;
 
     const newPerson = {
       name: nombre,
       email,
       image: nombreImage,
       phonenumber: telefono,
-      state_id: 1,
+      zipcode,
+      address,
+      state_id,
     };
 
     // users.push(newUser);

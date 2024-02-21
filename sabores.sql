@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 17-02-2024 a las 16:12:57
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 21-02-2024 a las 22:23:23
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -73,6 +73,15 @@ CREATE TABLE `persons` (
   `zipcode` varchar(10) DEFAULT NULL,
   `state_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `persons`
+--
+
+INSERT INTO `persons` (`id`, `name`, `email`, `image`, `phonenumber`, `address`, `zipcode`, `state_id`) VALUES
+(4, 'Jose Gomez', 'josegomez@gmail.com', 'image-1705517580125.png', '3835520577', NULL, NULL, 1),
+(5, 'Juan Antonio Perez', 'jperez@gmail.com', 'image-1705533471211.jpeg', '3835963623', NULL, NULL, 1),
+(9, 'Martin Avellaneda', 'martinavellaneda@gmail.com', 'image-1708544633975.jpg', '3834967412', 'B° 250 Casa 23', '4700', 1);
 
 -- --------------------------------------------------------
 
@@ -161,6 +170,14 @@ CREATE TABLE `states` (
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `states`
+--
+
+INSERT INTO `states` (`id`, `name`) VALUES
+(1, 'Catamarca'),
+(2, 'La Rioja');
+
 -- --------------------------------------------------------
 
 --
@@ -180,8 +197,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `rol_id`, `person_id`) VALUES
-(1, 'admin', '$2a$10$JdPHvGIyIr6QbbY9cO6VEeQWKyh/MtXYLdkt1zD//drrrdzuUgpDq', 1, NULL),
-(2, 'cliente', '$2a$10$mQAm318sqhE.nX3xeKjb4uRaaM1juGrcVffM21S0BIhNRAdHge2Jq', 2, NULL);
+(1, 'admin', '$2a$10$JdPHvGIyIr6QbbY9cO6VEeQWKyh/MtXYLdkt1zD//drrrdzuUgpDq', 1, 4),
+(2, 'cliente', '$2a$10$mQAm318sqhE.nX3xeKjb4uRaaM1juGrcVffM21S0BIhNRAdHge2Jq', 2, 5),
+(5, 'soymartin', '$2a$10$UVRJLynNzik4AZU9gx9yueUgrt5ejPhGkGOsMXQnT9/6D7ICNetKy', 1, 9);
 
 --
 -- Índices para tablas volcadas
@@ -269,7 +287,7 @@ ALTER TABLE `payment_methods`
 -- AUTO_INCREMENT de la tabla `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
@@ -296,10 +314,16 @@ ALTER TABLE `sale_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `states`
+--
+ALTER TABLE `states`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas

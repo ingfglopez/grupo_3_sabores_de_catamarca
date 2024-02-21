@@ -59,7 +59,6 @@
                 <% } %>
             </div>
 
-
             <div class="form-group">
               <label>Contrase&ntilde;a</label>
               <input type="password" name="password"
@@ -69,6 +68,41 @@
                   <%= errors.password.msg %>
                 </div>
                 <% } %>
+            </div>
+
+            <div class="form-group">
+              <label>Dirección</label>
+              <input type="text" name="address"
+                class="form-control <%= locals.errors && errors.address ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.address : null %>">
+              <% if (locals.errors && errors.address) { %>
+                <div class="invalid-input">
+                  <%= errors.address.msg %>
+                </div>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+              <label>Código Postal</label>
+              <input type="number" name="zipcode"
+                class="form-control <%= locals.errors && errors.zipcode ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.zipcode : null %>">
+              <% if (locals.errors && errors.zipcode) { %>
+                <div class="invalid-input">
+                  <%= errors.zipcode.msg %>
+                </div>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+              <label>Provincia</label>
+              <select id="state_id" name="state_id">
+                <% states.forEach(state=> { %>
+                  <option value="<%= state.id %>">
+                    <%= state.name %>
+                  </option>
+                  <% }) %>
+              </select><br />
             </div>
 
             <div class="form-group">
