@@ -797,6 +797,13 @@ form button {
   margin-right: 10px;
 }
 
+.left-part img.detail_user {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
 .user-info h2,
 .user-info p {
   margin: 0;

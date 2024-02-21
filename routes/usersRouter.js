@@ -44,4 +44,7 @@ router.get("/signout", isLogged, usersController.signout);
 // Ruta Lista de Usuarios
 router.get("/list", isLogged, usersController.list);
 
+// Ruta Detalle de Usuarios
+router.get("/:id", isLogged, usersController.detail);
+
 module.exports = router;

@@ -196,6 +196,16 @@ const usersController = {
         res.send(error);
       });
   },
+
+  detail: (req, res) => {
+    db.Person.findByPk(req.params.id)
+      .then((person) => {
+        res.render("users/detail", { person });
+      })
+      .catch((error) => {
+        res.send(error);
+      });
+  },
 };
 
 module.exports = usersController;
