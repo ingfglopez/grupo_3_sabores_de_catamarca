@@ -58,7 +58,7 @@ const usersController = {
       phonenumber: telefono,
       zipcode,
       address,
-      state_id,
+      //state_id,
     };
 
     // users.push(newUser);
