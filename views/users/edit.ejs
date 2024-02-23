@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+
+  <body>
+    <%- include('../partials/header') %>
+
+      <section class="container">
+        <h2><span>EDITAR USUARIO <%= person.user[0].username || '' %></span></h2>
+
+        <div class="form-area">
+          <form action="/users/update/<%= person.id %>" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label>Nombre y Apellido</label>
+              <input type="text" name="nombre"
+                class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.nombre : null %><%= person.name || ''%>">
+              <% if (locals.errors && errors.nombre) { %>
+                <div class="invalid-input">
+                  <%= errors.nombre.msg %>
+                </div>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+              <label>Email</label>
+              <input type="text" name="email"
+                class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.email : null %><%= person.email || ''%>">
+              <% if (locals.errors && errors.email) { %>
+                <div class="invalid-input">
+                  <%= errors.email.msg %>
+                </div>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input type="number" name="telefono"
+                class="form-control <%= locals.errors && errors.telefono ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.telefono : null %><%= person.phonenumber || ''%>">
+              <% if (locals.errors && errors.telefono) { %>
+                <div class="invalid-input">
+                  <%= errors.telefono.msg %>
+                </div>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+              <label>Dirección</label>
+              <input type="text" name="address"
+                class="form-control <%= locals.errors && errors.address ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.address : null %><%= person.address || ''%>">
+              <% if (locals.errors && errors.address) { %>
+                <div class="invalid-input">
+                  <%= errors.address.msg %>
+                </div>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+              <label>Código Postal</label>
+              <input type="number" name="zipcode"
+                class="form-control <%= locals.errors && errors.zipcode ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.zipcode : null %><%= person.zipcode || ''%>">
+              <% if (locals.errors && errors.zipcode) { %>
+                <div class="invalid-input">
+                  <%= errors.zipcode.msg %>
+                </div>
+                <% } %>
+            </div>
+
+            <!-- <div class="form-group">
+              <label>Provincia</label>
+              <select id="state_id" name="state_id">
+                <% //states.forEach(state=> { %>
+                  <option value="<%= //state.id %>">
+                    <%= //state.name %>
+                  </option>
+                  <% //}) %>
+              </select><br />
+            </div> -->
+
+            <div class="form-group">
+              <label>Imagen de Perfil:</label>
+              <input type="file" name="image"
+                class="form-control <%= locals.errors && errors.image ? 'is-invalid' : null %>">
+              <% if (locals.errors && errors.image) { %>
+                <div class="invalid-input">
+                  <%= errors.image.msg %>
+                </div>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+              <button type="submit">MODIFICAR CUENTA</button>
+              <p id="ya_tenes_cuenta">
+                Ya tenes una cuenta?<span>
+                  <a href="/users/signin">Inici&aacute; sesi&oacute;n</a></span>
+              </p>
+            </div>
+          </form>
+        </div>
+      </section>
+      <%- include('../partials/follow-us') %> <%- include('../partials/footer') %>
+  </body>
+
+</html>
