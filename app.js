@@ -5,8 +5,9 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
 const mainRouter = require("./routes/main");
-const productsRouter = require("./routes/products");
-const usersRouter = require("./routes/usersRouter");  
+const productsRouter = require("./routes/productsRouter");
+const usersRouter = require("./routes/usersRouter");
+const adminRouter = require('./routes/adminRouter');
 
 const usernameInCookie = require('./middlewares/usernameInCookie');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
@@ -40,6 +41,7 @@ app.set("view engine", "ejs");
 app.use("/", mainRouter);
 app.use("/products", productsRouter);
 app.use("/users", usersRouter);
+app.use('/admin/', adminRouter);
 
 app.listen(3000, () => console.log("Servidor funcionando"));
 

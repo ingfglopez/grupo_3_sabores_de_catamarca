@@ -2,11 +2,20 @@ const path = require("node:path");
 const fs = require("node:fs");
 const db = require('../database/models/index');
 
-//const productsFilePath = path.join(__dirname, "../data/products.json");
-//const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-//const categories = require("../data/categories.json");
-
 const productsController = {
+
+  list: (req, res) => {
+    db.Product.findAll({
+      order: [
+        ['name', 'ASC']
+      ]
+    }).then(products => {
+      res.send(products)
+    }).catch(error => {
+      console.log(error);
+      res.send(error);
+    })
+  },
 
   products: (req, res) => {
     db.Product.findAll().then(products => {
