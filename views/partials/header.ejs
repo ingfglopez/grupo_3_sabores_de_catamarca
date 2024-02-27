@@ -33,6 +33,9 @@
         <ul class="nav-list">
           <li><a href="#">Contacto</a></li>
           <li><a href="/about">Quienes somos</a></li>
+          <% if (locals.isAdmin) { %>
+            <li><a href="/admin">Panel de control</a></li>            
+          <% } %>
           <% if (!locals.isLogged) { %>
             <li><a href="#" class="item-movil">Iniciar sesi&oacute;n</a></li>
           <% } else { %>

@@ -47,4 +47,15 @@ router.get("/list", isLogged, usersController.list);
 // Ruta Detalle de Usuarios
 router.get("/:id", isLogged, usersController.detail);
 
+//Ruta Editar de Usuarios
+router.get("/edit/:id", usersController.edit);
+
+//Ruta Procesar Edicion
+router.post(
+  "/update/:id",
+  upload.single("image"),
+  validations,
+  usersController.update
+);
+
 module.exports = router;

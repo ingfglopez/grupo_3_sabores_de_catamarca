@@ -1,0 +1,49 @@
+<%- include('../admin/header') %>
+
+  <h2><span>
+      <%= title %>
+    </span></h2>
+  <div class="form-area">
+    <form id="productForm" action="<%= action %>" method="post" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="productName" class="form-label">Nombre</label>
+        <input type="text" id="productName" name="name" class="form-control" value="<%= product.name || ''%>" />
+      </div>
+      <div class="mb-3">
+        <label for="productDescription" class="form-label">Descripci&oacute;n</label>
+        <textarea id="productDescription" name="description"
+          class="form-control"><%= product.description || '' %></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="productCategory" class="form-label">Categoría</label>
+        <select id="category_id" name="category_id" class="form-select">
+          <% categories.forEach(category=> { %>
+            <% let selected=product.category_id==category.id ? 'selected' : '' %>
+              <option value="<%= category.id %>" <%=selected %> ><%= category.name %>
+              </option>option>
+              <% }) %>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="productWeight" class="form-label">Peso</label>
+        <input type="text" id="productWeight" name="weight" class="form-control" value="<%= product.weight || ''%>" />
+      </div>
+      <div class="mb-3">
+        <label for="productStock" class="form-label">Stock</label>
+        <input type="number" id="productStock" name="stock" class="form-control" value="<%= product.stock || ''%>" />
+      </div>
+      <div class="mb-3">
+        <label for="productPrice" class="form-label">Precio</label>
+        <input type="text" id="productPrice" name="price" class="form-control" value="<%= product.price || ''%>" />
+      </div>
+      <div class="mb-3">
+        <label for="productImage" class="form-label">Imagen</label>
+        <input type="file" id="productImage" name="image" accept="image/*" class="form-control" />
+      </div>
+      <div class="mb-3 mt-3">
+        <button type="submit" class="btn btn-primary">Aceptar</button>
+      </div>
+    </form>
+  </div>
+
+  <%- include('../admin/footer') %>

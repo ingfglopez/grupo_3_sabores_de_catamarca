@@ -21,12 +21,19 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+
+router.get('/', [
+  isLogged,
+  isAdmin
+], productsController.list)
+
 // Create
 router.get("/create", [
   isLogged,
   isAdmin
 ], productsController.create);
 
+// Insert
 router.post("/", [
   isLogged,
   isAdmin,
@@ -39,6 +46,7 @@ router.get("/", [
   isAdmin
 ], productsController.products);
 
+// Detail
 router.get("/:id", productsController.detail);
 
 // Update
@@ -47,6 +55,7 @@ router.get("/:id/edit", [
   isAdmin
 ], productsController.update);
 
+// Put
 router.put("/:id", [
   isLogged,
   isAdmin,

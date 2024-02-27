@@ -1,6 +1,6 @@
 const adminController = {
   home: (req, res) => {
-    res.render('admin')
+    res.render('admin/admin')
   }
 }
 

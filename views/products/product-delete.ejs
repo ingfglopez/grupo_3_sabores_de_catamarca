@@ -1,12 +1,11 @@
-<%- include('../partials/head') %>
-<%- include('../partials/header') %>
+<%- include('../admin/header') %>
 
-<main class="container">
-  <form action="/products/<%= product.id %>?_method=DELETE" method="post">
-    <p>Confirma borrar el producto "<%= product.name %>"?</p>
-    <a href="/products">Cancelar</a>
-    <button type="submit">Confirmar</button>
-  </form>
-</main>
+  <div>
+    <form action="/products/<%= product.id %>?_method=DELETE" method="post">
+      <p>Confirma borrar el producto "<%= product.name %>"?</p>
+      <a href="/products">Cancelar</a>
+      <button type="submit" class="btn btn-primary btn-sm">Confirmar</button>
+    </form>
+  </div>
 
-<%- include('../partials/footer') %>
+<%- include('../admin/footer') %>

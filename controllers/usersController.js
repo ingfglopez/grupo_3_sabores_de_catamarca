@@ -4,10 +4,8 @@ const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const db = require("../database/models/index");
 
-//const userFilePath = path.join(__dirname, "../data/users.json");
-//const users = JSON.parse(fs.readFileSync(userFilePath, "utf-8"));
-
 const usersController = {
+  //Cargar Formulario para Registrar User
   register: (req, res) => {
     db.State.findAll()
       .then((states) => {
@@ -18,6 +16,7 @@ const usersController = {
       });
   },
 
+  //Procesar Formulario para Registrar User
   process: (req, res) => {
     //revisamos que el ingreso de datos no tenga errores
     const resultValidation = validationResult(req);
@@ -28,24 +27,6 @@ const usersController = {
         oldData: req.body,
       });
     }
-
-    //revisamos que el email no este ya registrado
-
-    //    const allUsers = JSON.parse(fs.readFileSync("data/users.json", "utf-8"));
-    //     let userInDB = allUsers.find((user) => user.email == req.body.email);
-
-    // let userInDB = db.Person.findOne({ where: { email: req.body.email } });
-
-    // if (userInDB) {
-    //   return res.render("users/signup", {
-    //     errors: {
-    //       email: {
-    //         msg: "Este email ya está registrado",
-    //       },
-    //     },
-    //     oldData: req.body,
-    //   });
-    // }
 
     const nombreImage = req.file.filename;
     const { nombre, username, email, telefono, state_id, zipcode, address } =
@@ -58,21 +39,8 @@ const usersController = {
       phonenumber: telefono,
       zipcode,
       address,
-      //state_id,
+      state_id: 1,
     };
-
-    // users.push(newUser);
-    // fs.writeFileSync("data/users.json", JSON.stringify(users), "utf-8");
-    // res.redirect("users/signin");
-
-    // db.User.create(newUser)
-    //   .then((user) => {
-    //     console.log("Usuario creado", user);
-    //     res.redirect("users/signin");
-    //   })
-    //   .catch((error) => {
-    //     res.send(error);
-    //   });
 
     db.Person.create(newPerson)
       .then((person) => {
@@ -135,6 +103,9 @@ const usersController = {
               // Guardo el usuario en la session
               delete userFromDB.password;
               req.session.userLogged = userFromDB;
+              console.log('LOCALS', res.locals);
+              
+              console.log('LOCALS', res.locals);
 
               // Si se marco "Recordar usuario", guardamos una cookie
               if (req.body.remember_user) {
@@ -198,9 +169,50 @@ const usersController = {
   },
 
   detail: (req, res) => {
-    db.Person.findByPk(req.params.id)
+    db.Person.findByPk(req.params.id, {
+      include: [{ association: "user" }],
+    })
       .then((person) => {
         res.render("users/detail", { person });
+      })
+      .catch((error) => {
+        res.send(error);
+      });
+  },
+
+  edit: (req, res) => {
+    db.Person.findByPk(req.params.id, {
+      include: [{ association: "user" }],
+    }).then((Person) => {
+      res.render("users/edit", { person: Person });
+    });
+  },
+
+  update: (req, res) => {
+    db.Person.findByPk(req.params.id)
+      .then((person) => {
+        const image = req.file ? req.file.filename : person.image;
+        const { name, email, telefono, state_id, zipcode, address } = req.body;
+
+        const personEdited = {
+          name,
+          email,
+          image,
+          phonenumber: telefono,
+          zipcode,
+          address,
+          state_id: 1,
+        };
+
+        db.Person.update(personEdited, {
+          where: {
+            id: req.params.id,
+          },
+        });
+      })
+      .then((user) => {
+        console.log("Usuario modificado", user);
+        res.redirect("/users/list");
       })
       .catch((error) => {
         res.send(error);

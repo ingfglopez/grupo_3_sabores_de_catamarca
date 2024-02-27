@@ -28,11 +28,18 @@
                     <%= person.phonenumber %>
                   </p>
                   <br>
+                  <h3>
+                    Nombre de Usuario
+                  </h3>
+                  <p>
+                    <%= person.user[0].username %>
+                  </p>
+                  <br>
 
                 </div>
               </div>
               <div class="right-part">
-                <button>Editar</button>
+                <a class="button" href="/users/edit/<%= person.id %>">Editar</a>
                 <button>Borrar</button>
               </div>
             </div>
