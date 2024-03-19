@@ -126,6 +126,7 @@ const productsController = {
       });
     }
   },
+
   delete: (req, res) => {
     if (req.method == "GET") {
       db.Product.findByPk(req.params.id)
