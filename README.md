@@ -26,6 +26,8 @@ Consumidores que se distinguen por su gusto hacia productos de origen natural, a
 
 - Diego Soto: Comunicador Social, posee un conocimiento en programación y desarrollo adquirido a través de múltiples cursos y en forma autodidacta. Su convicción de mantenerse al tanto de las últimas tecnologías y metodologías de trabajo refleja su disposición para enfrentar desafíos en un entorno tecnológico en constante evolución.
 
+- Fernando López Hola, tengo 50 años soy ingeniero en sistemas, trabajando en un hotel y ademas doy clases, tengo trabajos particulares de desarrollos de sistemas y mi deseo es aprender siempre.
+
 ## Sitios de Referencia:
 
 - [masquebien.com.ar](https://masquebien.com.ar/)
