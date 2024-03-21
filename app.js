@@ -3,6 +3,7 @@ const path = require("path");
 const methodOverride = require("method-override");
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
 
 const mainRouter = require("./routes/main");
 const productsRouter = require("./routes/productsRouter");
@@ -27,6 +28,14 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+// Añadir la funcionalidad de mensajes flash
+app.use(flash());
+
+app.use((req, res, next) => {
+  res.locals.mensajes = req.flash(); // Los mensajes flash pasan a estar disponibles para toda la aplicacion
+  next()
+})
 
 // Determinar si se recordo al usuario al momento de loguear
 app.use(usernameInCookie);

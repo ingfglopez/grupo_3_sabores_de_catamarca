@@ -24,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
     weight: {
       type: dataTypes.INTEGER,
       allowNull: true,
-      defaultValue: 0
+      defaultValue: null
     },
     stock: {
       type: dataTypes.INTEGER,
@@ -43,8 +43,9 @@ module.exports = (sequelize, dataTypes) => {
   }
 
   const config = {
-    timestamps: false,
-    tableName: "products"
+    //timestamps: false,
+    tableName: "products",
+    paranoid: true
   }
 
   const Product = sequelize.define(alias, cols, config);

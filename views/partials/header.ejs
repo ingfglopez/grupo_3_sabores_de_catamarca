@@ -18,12 +18,14 @@
           <li>
             <a href="/"><i class="fa-solid fa-house"></i>Inicio</a>
           </li>
-          <li>
+<!--           <li>
             <a href="/products"><i class="fa-solid fa-bag-shopping"></i>Productos</a>
-          </li>
-          <li>
-            <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i>Carrito</a>
-          </li>
+          </li> -->
+          <% if (locals.isLogged) { %>
+            <li>
+              <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i>Carrito</a>
+            </li>           
+          <% } %>
         </ul>
       </nav>
       <nav class="nav" id="nav">

@@ -1,8 +1,22 @@
 <%- include('header') %>
 
-  <a href="/admin/products/create" class="btn btn-primary btn-sm mb-2">Nuevo</a>
+  <% if (msgOk) { %>
+   <div class="alert alert-info" role="alert">
+    <%= msgOk %>
+   </div>
+  <% } %>
+  
+  <% if (msgError) { %>
+   <div class="alert alert-info" role="alert">
+    <%= msgError %>
+   </div>
+  <% } %>
 
-  <table class="table">
+  <h2>Productos</h2>
+
+  <a href="/products/create" class="btn btn-primary btn-sm mb-2">Nuevo</a>
+
+  <table class="table table-sm table-bordered">
     <thead class="table-dark">
       <th>Nombre</th>
       <th>Categoria</th>

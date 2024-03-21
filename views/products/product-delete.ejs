@@ -1,10 +1,16 @@
 <%- include('../admin/header') %>
 
+  <h2>Borrar producto</h2>
+
   <div>
     <form action="/products/<%= product.id %>?_method=DELETE" method="post">
-      <p>Confirma borrar el producto "<%= product.name %>"?</p>
-      <a href="/products">Cancelar</a>
-      <button type="submit" class="btn btn-primary btn-sm">Confirmar</button>
+      <div class="mb-3">
+        <p>Confirma borrar el producto <strong>"<%= product.name %>"</strong>?</p>
+      </div>
+      <div>
+        <a href="/products">Cancelar</a>
+        <button type="submit" class="btn btn-primary btn-sm">Confirmar</button>
+      </div>
     </form>
   </div>
 

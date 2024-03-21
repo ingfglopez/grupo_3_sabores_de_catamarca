@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const productsController = require("../controllers/productsController");
+const validateProduct = require('../middlewares/validateProduct')
 
 const path = require("path");
 const multer = require("multer");
@@ -21,8 +22,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-
-router.get('/', [
+router.get("/", [
   isLogged,
   isAdmin
 ], productsController.list)
@@ -37,14 +37,9 @@ router.get("/create", [
 router.post("/", [
   isLogged,
   isAdmin,
-  upload.single("image")
+  upload.single("image"),
+  validateProduct
 ], productsController.store);
-
-// Read
-router.get("/", [
-  isLogged,
-  isAdmin
-], productsController.products);
 
 // Detail
 router.get("/:id", productsController.detail);
