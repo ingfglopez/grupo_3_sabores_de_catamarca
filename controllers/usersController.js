@@ -29,8 +29,7 @@ const usersController = {
     }
 
     const nombreImage = req.file.filename;
-    const { nombre, username, email, telefono, state_id, zipcode, address } =
-      req.body;
+    const { nombre, username, email, telefono, state_id, zipcode, address } = req.body;
 
     const newPerson = {
       name: nombre,
@@ -49,7 +48,7 @@ const usersController = {
           username,
           password: bcryptjs.hashSync(req.body.password, 10),
           person_id: person.id,
-          rol_id: 1,
+          rol_id: 2, // por defecto tipo cliente
         };
         return db.User.create(newUser);
       })
@@ -87,10 +86,13 @@ const usersController = {
         where: {
           username: req.body.username,
         },
+        include: [
+          { association: 'person' }
+        ]
       })
         .then((users) => {
           if (users[0]) {
-            console.log("users[0]", users[0]);
+            //console.log("users[0]", users[0]);
 
             const userFromDB = users[0].dataValues;
 
@@ -103,7 +105,8 @@ const usersController = {
               // Guardo el usuario en la session
               delete userFromDB.password;
               req.session.userLogged = userFromDB;
-
+              console.log('LOCALS', res.locals);
+              
               // Si se marco "Recordar usuario", guardamos una cookie
               if (req.body.remember_user) {
                 // Vamos a recordar el usuario quince minutos
@@ -158,7 +161,12 @@ const usersController = {
       ],
     })
       .then((users) => {
-        res.render("users/list", { users });
+        const { msgOk, msgError } = res.locals.mensajes
+        res.render("admin/users", {
+          users,
+          msgOk,
+          msgError
+        });
       })
       .catch((error) => {
         res.send(error);
@@ -177,15 +185,55 @@ const usersController = {
       });
   },
 
+  /*   edit: (req, res) => {
+      console.log(req.params.id);
+      db.Person.findByPk(req.params.id, {
+        include: [{ association: "user" }],
+      }).then((Person) => {
+        //res.render("users/edit", { person: Person });
+        console.log(Person);
+        res.render("users/edit", { person: Person });
+      });
+    }, */
+
   edit: (req, res) => {
-    db.Person.findByPk(req.params.id, {
-      include: [{ association: "user" }],
-    }).then((Person) => {
-      res.render("users/edit", { person: Person });
-    });
+    db.User.findByPk(req.params.id, {
+      include: [
+        { association: 'person' }
+      ]
+    })
+      .then(user => {
+        //console.log(user);
+        //req.session.user_id = user.id
+        //req.session.username = user.username
+        //req.session.user = user
+        //console.log(req.session.user);
+        //console.log(req.session.username);
+        res.render('users/edit', {
+          //user: req.session.user
+          user
+        })
+      })
+      .catch(error => {
+        console.log(error);
+        res.send('Error')
+      })
   },
 
   update: (req, res) => {
+
+    const resultValidation = validationResult(req);
+
+    if (resultValidation.errors.length > 0) {
+      //console.log(req.body);
+      //console.log(req.session.user);
+      return res.render("users/edit", {
+        errors: resultValidation.mapped(),
+        //oldData: req.body,
+        user: req.body
+      });
+    }
+
     db.Person.findByPk(req.params.id)
       .then((person) => {
         const image = req.file ? req.file.filename : person.image;
@@ -209,12 +257,55 @@ const usersController = {
       })
       .then((user) => {
         console.log("Usuario modificado", user);
-        res.redirect("/users/list");
+        req.flash("msgOk", "El usuario fue modificado correctamente.");
+        //res.redirect("/users/list");
+        res.redirect("/users");
       })
       .catch((error) => {
+        req.flash("msgError", "No se pudo modificar el usuario");
         res.send(error);
       });
   },
+
+  delete: (req, res) => {
+    if (req.method == "GET") {
+      db.User.findByPk(req.params.id, {
+        include: [
+          { association: 'person' }
+        ]
+      })
+        .then((user) => {
+          res.render("users/user-delete", { user });
+        })
+        .catch((error) => {
+          res.send(error);
+        });
+    } else {
+
+      console.log(req.params.id);
+      console.log(req.body);
+
+      db.User.destroy({
+        where: {
+          id: req.params.id,
+        },
+      })
+        .then((result) => {
+          db.Person.destroy({
+            where: {
+              id: req.body.person_id
+            }
+          })
+            .then(result => {
+              req.flash('msgOk', `El usuario fue eliminado`)
+              res.redirect("/users");
+            })
+        })
+        .catch((error) => {
+          res.send(error);
+        });
+    }
+  }
 };
 
 module.exports = usersController;

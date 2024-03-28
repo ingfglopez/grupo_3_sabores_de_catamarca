@@ -1,108 +1,104 @@
-<!DOCTYPE html>
-<html lang="es">
-<%- include('../partials/head') %>
+<%- include('../admin/header') %>
 
-  <body>
-    <%- include('../partials/header') %>
-
-      <section class="container">
-        <h2><span>EDITAR USUARIO <%= person.user[0].username || '' %></span></h2>
+      <!-- <section class="container"> -->
+        <h2><span>EDITAR USUARIO <%= user.username %></span></h2>
 
         <div class="form-area">
-          <form action="/users/update/<%= person.id %>" method="post" enctype="multipart/form-data">
-            <div class="form-group">
+        
+          <form action="/users/<%= user.person ? user.person.id : user.person_id%>?_method=PUT" method="post" enctype="multipart/form-data">
+        
+            <input type="text" name="id" value="<%= user.id  %>">
+            <input type="text" name="username" value="<%= user.username %>">
+            <input type="text" name="person_id" value="<%= user.person ? user.person.id : user.person_id %>">
+
+
+            <div class="mb-3">
               <label>Nombre y Apellido</label>
-              <input type="text" name="nombre"
-                class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
-                value="<%= locals.oldData ? oldData.nombre : null %><%= person.name || ''%>">
-              <% if (locals.errors && errors.nombre) { %>
+              <input type="text" name="name" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                value="<%= user.person ? user.person.name : user.name %>">
+                <% if (locals.errors && errors.name) { %>
                 <div class="invalid-input">
-                  <%= errors.nombre.msg %>
+                  <%= errors.name.msg %>
                 </div>
                 <% } %>
             </div>
-
-            <div class="form-group">
+        
+            <div class="mb-3">
               <label>Email</label>
-              <input type="text" name="email"
-                class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
-                value="<%= locals.oldData ? oldData.email : null %><%= person.email || ''%>">
+              <input type="text" name="email" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                value="<%= user.person ? user.person.email : user.email %>">
               <% if (locals.errors && errors.email) { %>
                 <div class="invalid-input">
                   <%= errors.email.msg %>
                 </div>
-                <% } %>
+              <% } %>
             </div>
-
-            <div class="form-group">
-              <label>Teléfono</label>
-              <input type="number" name="telefono"
-                class="form-control <%= locals.errors && errors.telefono ? 'is-invalid' : null %>"
-                value="<%= locals.oldData ? oldData.telefono : null %><%= person.phonenumber || ''%>">
+        
+            <div class="mb-3">
+              <label>Tel&eacute;fono</label>
+              <input type="number" name="phonenumber"
+                class="form-control <%= locals.errors && errors.phonenumber ? 'is-invalid' : null %>"
+                value="<%= user.person ? user.person.phonenumber : user.phonenumber %>">
               <% if (locals.errors && errors.telefono) { %>
                 <div class="invalid-input">
-                  <%= errors.telefono.msg %>
+                  <%= errors.phonenumber.msg %>
                 </div>
-                <% } %>
+              <% } %>
             </div>
-
-            <div class="form-group">
-              <label>Dirección</label>
+        
+            <div class="mb-3">
+              <label>Direcci&oacute;n</label>
               <input type="text" name="address"
                 class="form-control <%= locals.errors && errors.address ? 'is-invalid' : null %>"
-                value="<%= locals.oldData ? oldData.address : null %><%= person.address || ''%>">
+                value="<%= user.person ? user.person.address : user.address %>">
               <% if (locals.errors && errors.address) { %>
                 <div class="invalid-input">
                   <%= errors.address.msg %>
                 </div>
                 <% } %>
             </div>
-
-            <div class="form-group">
-              <label>Código Postal</label>
+        
+            <div class="mb-3">
+              <label>C&oacute;digo Postal</label>
               <input type="number" name="zipcode"
                 class="form-control <%= locals.errors && errors.zipcode ? 'is-invalid' : null %>"
-                value="<%= locals.oldData ? oldData.zipcode : null %><%= person.zipcode || ''%>">
+                value="<%= user.person ? user.person.zipcode : user.zipcode %>">
               <% if (locals.errors && errors.zipcode) { %>
                 <div class="invalid-input">
                   <%= errors.zipcode.msg %>
                 </div>
                 <% } %>
             </div>
-
+        
             <!-- <div class="form-group">
-              <label>Provincia</label>
-              <select id="state_id" name="state_id">
-                <% //states.forEach(state=> { %>
-                  <option value="<%= //state.id %>">
-                    <%= //state.name %>
-                  </option>
-                  <% //}) %>
-              </select><br />
-            </div> -->
-
-            <div class="form-group">
+                      <label>Provincia</label>
+                      <select id="state_id" name="state_id">
+                        <% //states.forEach(state=> { %>
+                          <option value="<%= //state.id %>">
+                            <%= //state.name %>
+                          </option>
+                          <% //}) %>
+                      </select><br />
+                    </div> -->
+        
+            <div class="mb-3">
               <label>Imagen de Perfil:</label>
-              <input type="file" name="image"
-                class="form-control <%= locals.errors && errors.image ? 'is-invalid' : null %>">
+              <% if (user.person) { %>
+                <img src="/images/users/<%= user.person.image %>" alt="<%= user.username %>" class="sab-img-thumbnail">
+              <% } %>
+              <input type="file" name="image" class="form-control <%= locals.errors && errors.image ? 'is-invalid' : null %>">
               <% if (locals.errors && errors.image) { %>
                 <div class="invalid-input">
                   <%= errors.image.msg %>
                 </div>
                 <% } %>
             </div>
-
-            <div class="form-group">
-              <button type="submit">MODIFICAR CUENTA</button>
-              <p id="ya_tenes_cuenta">
-                Ya tenes una cuenta?<span>
-                  <a href="/users/signin">Inici&aacute; sesi&oacute;n</a></span>
-              </p>
+        
+            <div class="mb-3 mt-3">
+              <button type="submit" class="btn btn-primary btn-sm">Aceptar</button>
             </div>
           </form>
         </div>
-      </section>
-      <%- include('../partials/follow-us') %> <%- include('../partials/footer') %>
-  </body>
+      <!-- </section> -->
 
-</html>
+<%- include('../admin/footer') %>

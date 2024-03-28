@@ -1,12 +1,14 @@
 const express = require("express");
 const path = require("path");
 const methodOverride = require("method-override");
-const session = require("express-session");
-const cookieParser = require("cookie-parser");
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
 
 const mainRouter = require("./routes/main");
-const productsRouter = require("./routes/products");
+const productsRouter = require("./routes/productsRouter");
 const usersRouter = require("./routes/usersRouter");
+const adminRouter = require('./routes/adminRouter');
 
 const apiUsersRouter = require("./routes/api/users");
 const apiProductsRouter = require("./routes/api/products");
@@ -24,13 +26,19 @@ app.use(cookieParser());
 app.use(methodOverride("_method"));
 
 // Middleware de session
-app.use(
-  session({
-    secret: "123456",
-    resave: false,
-    saveUninitialized: false,
-  })
-);
+app.use(session({
+  secret: '123456',
+  resave: false,
+  saveUninitialized: false
+}));
+
+// Añadir la funcionalidad de mensajes flash
+app.use(flash());
+
+app.use((req, res, next) => {
+  res.locals.mensajes = req.flash(); // Los mensajes flash pasan a estar disponibles para toda la aplicacion
+  next()
+})
 
 // Determinar si se recordo al usuario al momento de loguear
 app.use(usernameInCookie);
@@ -43,6 +51,7 @@ app.set("view engine", "ejs");
 
 // Rutas
 app.use("/", mainRouter);
+app.use('/admin/', adminRouter);
 app.use("/products", productsRouter);
 app.use("/users", usersRouter);
 

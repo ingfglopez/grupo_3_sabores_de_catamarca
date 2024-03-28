@@ -1,0 +1,55 @@
+<!-- <!DOCTYPE html>
+<html lang="es"> -->
+<%- include('../partials/head') %>
+
+  <!-- <body> -->
+    <%- include('../partials/header') %>
+      <main>        
+        <section class="container">
+          <h2><span><%= title %></span></h2>
+          <div class="form-area">
+            <form id="productForm" action="<%= action %>" method="post" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="productName">Nombre del producto</label>
+                <input type="text" id="productName" name="name" value="<%= product.name || ''%>"/><br />
+              </div>
+              <div class="form-group">
+                <label for="productDescription">Detalles del Producto</label>
+                <textarea id="productDescription" name="description"><%= product.description || '' %></textarea>
+              </div>
+              <div class="form-group">
+                <label for="productImage">Imagen</label>
+                <input type="file" id="productImage" name="image" accept="image/*" /><br />
+              </div>
+              <div class="form-group">
+                <label for="productCategory">Categoría</label>
+                <select id="category_id" name="category_id">
+                  <% categories.forEach(category => { %>
+                    <% let selected = product.category_id == category.id ? 'selected' : ''%>
+                    <option value="<%= category.id %>" <%= selected %> ><%= category.name %></option>option>
+                  <% }) %>
+                </select><br />
+              </div>
+              <div class="form-group">
+                <label for="productWeight">Peso:</label>
+                <input type="text" id="productWeight" name="weight" value="<%= product.weight || ''%>"/><br />
+              </div>
+              <div class="form-group">
+                <label for="productStock">Stock</label>
+                <input type="number" id="productStock" name="stock" value="<%= product.stock || ''%>"/><br />
+              </div>
+              <div class="form-group">
+                <label for="productPrice">Precio:</label>
+                <input type="text" id="productPrice" name="price" value="<%= product.price || ''%>"/><br />
+                <div class="form-group">
+                  <button type="submit">Aceptar</button>
+                </div>
+            </form>
+          </div>
+        </section>
+      </main>
+      <%- include('../partials/follow-us') %> 
+      <%- include('../partials/footer') %>
+<!--   </body>
+
+</html> -->

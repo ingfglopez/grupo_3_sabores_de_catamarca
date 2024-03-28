@@ -5,7 +5,6 @@ const validateLogin = [
     .notEmpty().withMessage('El usuario es obligatorio').bail(),
     //.isEmail().withMessage('El email ingresado no es valido'),
 /*   check('email')
-    .notEmpty().withMessage('El email es obligatorio').bail()
     .isEmail().withMessage('El email ingresado no es valido'), */
   check('password')
     .notEmpty().withMessage('El contraseña es obligatoria').bail()

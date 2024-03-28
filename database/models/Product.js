@@ -24,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
     weight: {
       type: dataTypes.INTEGER,
       allowNull: true,
-      defaultValue: 0
+      defaultValue: null
     },
     stock: {
       type: dataTypes.INTEGER,
@@ -43,8 +43,9 @@ module.exports = (sequelize, dataTypes) => {
   }
 
   const config = {
-    timestamps: false,
-    tableName: "products"
+    //timestamps: false,
+    tableName: "products",
+    paranoid: true
   }
 
   const Product = sequelize.define(alias, cols, config);
@@ -56,15 +57,6 @@ module.exports = (sequelize, dataTypes) => {
       foreignKey: 'category_id'
     })
 
-    /*
-    Movie.belongsToMany(models.Actor, {
-      as: 'actors',
-      through: 'actor_movie',
-      foreignKey: 'movie_id',
-      otherKey: 'actor_id',
-      timestamps: false
-    })
-    */
   };
 
   return Product;

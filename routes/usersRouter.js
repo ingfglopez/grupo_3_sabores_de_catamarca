@@ -3,11 +3,13 @@ const router = express.Router();
 const usersController = require("../controllers/usersController");
 const validations = require("../middlewares/validateRegisterMiddleware");
 const validateLogin = require("../middlewares/validateLogin");
+const validatePerson = require('../middlewares/validatePerson')
 const isLogged = require("../middlewares/isLogged");
 const isGuest = require("../middlewares/isGuest");
 
 const path = require("path");
 const multer = require("multer");
+const isAdmin = require("../middlewares/isAdmin");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -22,6 +24,11 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
+router.get('/', [
+  isLogged,
+  isAdmin
+], usersController.list)
 
 //Acceder al Formulario de registro
 router.get("/register", isGuest, usersController.register);
@@ -42,7 +49,7 @@ router.get("/profile", isLogged, usersController.profile);
 router.get("/signout", isLogged, usersController.signout);
 
 // Ruta Lista de Usuarios
-router.get("/list", isLogged, usersController.list);
+//router.get("/list", isLogged, usersController.list);
 
 // Ruta Detalle de Usuarios
 router.get("/:id", isLogged, usersController.detail);
@@ -51,11 +58,21 @@ router.get("/:id", isLogged, usersController.detail);
 router.get("/edit/:id", usersController.edit);
 
 //Ruta Procesar Edicion
-router.post(
-  "/update/:id",
+router.put("/:id",
   upload.single("image"),
-  validations,
+  validatePerson,
   usersController.update
 );
+
+// Ruta para Eliminar usuario
+router.get("/delete/:id", [
+  isLogged,
+  isAdmin
+], usersController.delete);
+
+router.delete("/:id", [
+  isLogged,
+  isAdmin
+], usersController.delete);
 
 module.exports = router;

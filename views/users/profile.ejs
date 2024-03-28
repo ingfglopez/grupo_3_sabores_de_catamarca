@@ -4,10 +4,43 @@
 
   <body>
     <%- include('../partials/header') %>
-      <section class="container">
-        <h2><span>Pagina de Perfil de <%= user.username %></span></h2>
+    <main>
+      <h2><span>Pagina de Perfil de <%= user.username %></span></h2>
+      <section class="detail container">
+        <div class="img-detail">
+          <img src="/images/users/<%= user.person.image %>" alt="<%= user.username %>" />
+        </div>
+        <div class="description-detail">
+          <div>
+            <h4>Nombre y Apellido</h4>
+            <%= user.person.name %>
+          </div>        
+
+          <div>
+            <h4>Email</h4>
+            <%= user.person.email %>
+          </div>
+
+          <div>
+            <h4>Tel&eacute;fono</h4>
+            <%= user.person.phonenumber %>
+          </div>
+
+          <div>
+            <h4>Direcci&oacute;n</h4>
+            <%= user.person.address %>
+          </div>
+
+          <div>
+            <h4>Codigo postal</h4>
+            <%= user.person.zipcode %>
+          </div>
+
+        </div>
+
         <!-- <img src="/images/users/<%= //user.image %>" alt=""> -->
       </section>
+    </main>
       <%- include('../partials/follow-us') %> <%- include('../partials/footer') %>
   </body>
 

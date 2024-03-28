@@ -1,0 +1,18 @@
+<%- include('../admin/header') %>
+
+  <h2>Borrar usuario</h2>
+
+  <div>
+    <form action="/users/<%= user.id %>?_method=DELETE" method="post">
+      <div class="mb-3">
+        <input type="text" name="person_id" value="<%= user.person.id %>">
+        <p>Confirma borrar el usuario <strong>"<%= user.username %>"</strong>?</p>
+      </div>
+      <div>
+        <a href="/users">Cancelar</a>
+        <button type="submit" class="btn btn-primary btn-sm">Confirmar</button>
+      </div>
+    </form>
+  </div>
+
+<%- include('../admin/footer') %>

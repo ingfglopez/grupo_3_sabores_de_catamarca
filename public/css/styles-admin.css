@@ -1,0 +1,11 @@
+.invalid-input {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: .875em;
+  color: var(--bs-form-invalid-color);
+}
+
+.sab-img-thumbnail {
+  height: 100px;
+  width: 100px;
+}

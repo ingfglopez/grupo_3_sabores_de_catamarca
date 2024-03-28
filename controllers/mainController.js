@@ -1,8 +1,19 @@
+const db = require("../database/models");
 
 const mainController = {
 
   home: (req, res) => {
-    res.render('home')
+    // Obtener los productos destacados/recientes
+    db.Product.findAll({
+      order: [
+        ['id', 'desc']
+      ],
+      limit: 8
+    }).then(products => {
+      res.render('home', { products })
+    }).catch(error => {
+      res.send(error);
+    })
   },
   about: (req, res) => {
     res.render('about')
@@ -10,4 +21,3 @@ const mainController = {
 }
 
 module.exports = mainController;
-

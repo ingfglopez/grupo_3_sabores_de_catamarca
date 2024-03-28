@@ -18,12 +18,14 @@
           <li>
             <a href="/"><i class="fa-solid fa-house"></i>Inicio</a>
           </li>
-          <li>
+<!--           <li>
             <a href="/products"><i class="fa-solid fa-bag-shopping"></i>Productos</a>
-          </li>
-          <li>
-            <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i>Carrito</a>
-          </li>
+          </li> -->
+          <% if (locals.isLogged) { %>
+            <li>
+              <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i>Carrito</a>
+            </li>           
+          <% } %>
         </ul>
       </nav>
       <nav class="nav" id="nav">
@@ -33,6 +35,9 @@
         <ul class="nav-list">
           <li><a href="#">Contacto</a></li>
           <li><a href="/about">Quienes somos</a></li>
+          <% if (locals.isAdmin) { %>
+            <li><a href="/admin">Panel de control</a></li>            
+          <% } %>
           <% if (!locals.isLogged) { %>
             <li><a href="#" class="item-movil">Iniciar sesi&oacute;n</a></li>
           <% } else { %>

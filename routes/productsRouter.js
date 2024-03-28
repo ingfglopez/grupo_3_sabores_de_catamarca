@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const productsController = require("../controllers/productsController");
+const validateProduct = require('../middlewares/validateProduct')
 
 const path = require("path");
 const multer = require("multer");
@@ -21,24 +22,26 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+router.get("/", [
+  isLogged,
+  isAdmin
+], productsController.list)
+
 // Create
 router.get("/create", [
   isLogged,
   isAdmin
 ], productsController.create);
 
+// Insert
 router.post("/", [
   isLogged,
   isAdmin,
-  upload.single("image")
+  upload.single("image"),
+  validateProduct
 ], productsController.store);
 
-// Read
-router.get("/", [
-  isLogged,
-  isAdmin
-], productsController.products);
-
+// Detail
 router.get("/:id", productsController.detail);
 
 // Update
@@ -47,10 +50,12 @@ router.get("/:id/edit", [
   isAdmin
 ], productsController.update);
 
+// Put
 router.put("/:id", [
   isLogged,
   isAdmin,
-  upload.single("image")
+  upload.single("image"),
+  validateProduct
 ] , productsController.update);
 
 // Delete

@@ -1,0 +1,46 @@
+<%- include('header') %>
+
+  <% if (msgOk) { %>
+   <div class="alert alert-info" role="alert">
+    <%= msgOk %>
+   </div>
+  <% } %>
+  
+  <% if (msgError) { %>
+   <div class="alert alert-info" role="alert">
+    <%= msgError %>
+   </div>
+  <% } %>
+
+  <h2>Usuarios</h2>
+
+  <!-- <a href="#" class="btn btn-primary btn-sm mb-2">Nuevo</a> -->
+
+  <table class="table table-sm table-bordered">
+    <thead class="table-dark">
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Imagen</th>
+      <th>Operaciones</th>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { %>
+        <tr>
+          <td>
+            <%= user.person.name %>
+          </td>
+          <td>
+            <%= user.person.email %>
+          </td>
+          <td>
+            <img src="/images/users/<%= user.person.image %>" class="img-thumbnail sab-img-thumbnail" alt="User Image">
+          </td>
+          <td>
+            <a href="/users/edit/<%= user.id %>" class="btn btn-success btn-sm">Editar</a>
+            <a href="/users/delete/<%= user.id %>" class="btn btn-danger btn-sm">Eliminar</a>
+          </td>
+        </tr>
+        <% }) %>
+    </tbody>
+  </table>
+<%- include('footer') %>

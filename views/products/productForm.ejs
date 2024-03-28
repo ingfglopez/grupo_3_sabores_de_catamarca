@@ -1,55 +1,76 @@
-<!-- <!DOCTYPE html>
-<html lang="es"> -->
-<%- include('../partials/head') %>
+<%- include('../admin/header') %>
 
-  <!-- <body> -->
-    <%- include('../partials/header') %>
-      <main>        
-        <section class="container">
-          <h2><span><%= title %></span></h2>
-          <div class="form-area">
-            <form id="productForm" action="<%= action %>" method="post" enctype="multipart/form-data">
-              <div class="form-group">
-                <label for="productName">Nombre del producto</label>
-                <input type="text" id="productName" name="name" value="<%= product.name || ''%>"/><br />
-              </div>
-              <div class="form-group">
-                <label for="productDescription">Detalles del Producto</label>
-                <textarea id="productDescription" name="description"><%= product.description || '' %></textarea>
-              </div>
-              <div class="form-group">
-                <label for="productImage">Imagen</label>
-                <input type="file" id="productImage" name="image" accept="image/*" /><br />
-              </div>
-              <div class="form-group">
-                <label for="productCategory">Categoría</label>
-                <select id="category_id" name="category_id">
-                  <% categories.forEach(category => { %>
-                    <% let selected = product.category_id == category.id ? 'selected' : ''%>
-                    <option value="<%= category.id %>" <%= selected %> ><%= category.name %></option>option>
-                  <% }) %>
-                </select><br />
-              </div>
-              <div class="form-group">
-                <label for="productWeight">Peso:</label>
-                <input type="text" id="productWeight" name="weight" value="<%= product.weight || ''%>"/><br />
-              </div>
-              <div class="form-group">
-                <label for="productStock">Stock</label>
-                <input type="number" id="productStock" name="stock" value="<%= product.stock || ''%>"/><br />
-              </div>
-              <div class="form-group">
-                <label for="productPrice">Precio:</label>
-                <input type="text" id="productPrice" name="price" value="<%= product.price || ''%>"/><br />
-                <div class="form-group">
-                  <button type="submit">Aceptar</button>
-                </div>
-            </form>
+  <h2><span><%= title %></span></h2>
+  <div class="form-area">
+    <form id="productForm" action="<%= action %>" method="post" enctype="multipart/form-data" class="needs-validation"
+      novalidate>
+
+      <input type="hidden" name="id" value="<%= product.id  %>">
+
+      <div class="mb-3">
+        <label for="productName" class="form-label">Nombre</label>
+        <input type="text" id="productName" name="name" class="form-control" value="<%= product && product.name %>" />
+        <% if (errors && errors.name) { %>
+          <div class="invalid-input">
+            <%= errors.name.msg %>
           </div>
-        </section>
-      </main>
-      <%- include('../partials/follow-us') %> 
-      <%- include('../partials/footer') %>
-<!--   </body>
+          <% } %>
+      </div>
 
-</html> -->
+      <div class="mb-3">
+        <label for="productDescription" class="form-label">Descripci&oacute;n</label>
+        <textarea id="productDescription" name="description"
+          class="form-control"><%= product && product.description %></textarea>
+        <% if (errors && errors.description) { %>
+          <div class="invalid-input">
+            <%= errors.description.msg %>
+          </div>
+          <% } %>
+      </div>
+
+      <div class="mb-3">
+        <label for="productCategory" class="form-label">Categoría</label>
+        <select id="category_id" name="category_id" class="form-select">
+          <% categories.forEach(category=> { %>
+            <% let selected=product.category_id==category.id ? 'selected' : '' %>
+              <option value="<%= category.id %>" <%=selected %> ><%= category.name %>
+              </option>option>
+              <% }) %>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="productWeight" class="form-label">Peso</label>
+        <input type="text" id="productWeight" name="weight" class="form-control" value="<%= product.weight || ''%>" />
+      </div>
+
+      <div class="mb-3">
+        <label for="productStock" class="form-label">Stock</label>
+        <input type="number" id="productStock" name="stock" class="form-control" value="<%= product.stock || ''%>" />
+      </div>
+
+      <div class="mb-3">
+        <label for="productPrice" class="form-label">Precio</label>
+        <input type="text" id="productPrice" name="price" class="form-control" value="<%= product.price || ''%>" />
+      </div>
+
+      <div class="mb-3">
+        <label for="productImage" class="form-label">Imagen</label>
+        <% if (product.image) { %>
+          <img src="/images/<%= product.image %>" alt="<%= product.title %>" class="sab-img-thumbnail">
+          <% } %>
+            <input type="file" id="productImage" name="image" accept="image/*" class="form-control" />
+            <% if (errors && errors.image) { %>
+              <div class="invalid-input">
+                <%= errors.image.msg %>
+              </div>
+              <% } %>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <button type="submit" class="btn btn-primary btn-sm">Aceptar</button>
+      </div>
+    </form>
+  </div>
+
+  <%- include('../admin/footer') %>
