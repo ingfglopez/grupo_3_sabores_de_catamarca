@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-03-2024 a las 23:26:11
+-- Tiempo de generación: 28-03-2024 a las 17:08:37
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -82,7 +82,7 @@ CREATE TABLE `persons` (
 --
 
 INSERT INTO `persons` (`id`, `name`, `email`, `image`, `phonenumber`, `address`, `zipcode`, `state_id`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
-(4, 'Jose Gomez', 'moe@email.com', 'image-1705517580125.png', '3835520577', '', '4700', 1, NULL, NULL, NULL),
+(4, 'Jose Gomez', 'moe@email.com', 'image-1705517580125.png', '3835520577', '', '4700', 1, NULL, '2024-03-27 23:14:39', NULL),
 (5, 'Juan Antonio Perez', 'jperez@gmail.com', 'image-1705533471211.jpeg', '3835963623', NULL, NULL, 1, NULL, NULL, NULL),
 (9, 'Margareth Simpson', 'maggie.cimpson@email.com', 'image-1711495673567.jpg', '123456', '', '', 1, NULL, NULL, '2024-03-27 19:50:13'),
 (10, 'Juan Perez', 'juan@email.com', 'image-1711496187833.jpg', '78451245', '', '', 1, NULL, NULL, NULL);
@@ -131,7 +131,18 @@ INSERT INTO `products` (`id`, `name`, `description`, `image`, `category_id`, `st
 (21, 'Quesillo de Cabra', 'Este es el mejor queso de cabra que probe', 'image-1710986098168.png', 4, 10, 6000, NULL, 600, '2024-03-21 01:54:58', '2024-03-21 02:06:04', '2024-03-21 02:07:34'),
 (22, 'Mate Imperial', 'Mate imperial calabaza y alpaca mediano. Incluye bombilla', 'image-1711052978646.png', 5, 0, 0, NULL, 0, '2024-03-21 20:29:38', '2024-03-21 20:29:38', NULL),
 (23, 'Alfajor de dulce de leche', 'Los alfajores de dulce de leche son un clásico de la repostería del norte argentino. Dos galletas suaves rellenas con abundante dulce de leche, ideales para disfrutar en cualquier ocasión.', 'image-1711405918779.png', 3, 80, 400, NULL, 60, '2024-03-25 19:44:20', '2024-03-25 22:31:58', NULL),
-(24, 'Mate Camionero edit', 'Mate camionero con virola de alpaca edit', 'image-1711401150650.png', 4, 160, 1600, NULL, 160, '2024-03-25 21:06:22', '2024-03-25 21:12:30', NULL);
+(24, 'Mate Camionero edit', 'Mate camionero con virola de alpaca edit', 'image-1711401150650.png', 4, 160, 1600, NULL, 160, '2024-03-25 21:06:22', '2024-03-25 21:12:30', NULL),
+(25, 'Vino Patero', 'Vino elaborado con uvas de la zona', 'image-1702897388234.jpg', 3, 10, 3000, NULL, 0, NULL, NULL, NULL),
+(26, 'Mate de Palo Santo', 'Mate de Palo Santo con insertos de plata', 'image-1707837263129.jpg', 5, 7, 7000, NULL, 270, NULL, NULL, NULL),
+(27, 'Dulce de Membrillo en frasco', 'Deléitate con el dulce sabor del membrillo catamarqueño, elaborado con frutas frescas de la región y cocido lentamente para obtener una textura suave y un sabor auténtico. Frasco de 380g', 'image-1711633439963.png', 4, 12, 4500, NULL, 380, NULL, '2024-03-28 13:43:59', NULL),
+(28, 'Dulce de Cayote en frasco', 'Descubre el exquisito dulzor del cayote, una delicia tradicional de Catamarca. Elaborado con ingredientes naturales y cuidadosamente cocido para preservar su sabor original. Frasco de 480g', 'image-1711633583926.png', 4, 20, 6000, NULL, 480, NULL, '2024-03-28 13:46:23', NULL),
+(29, 'Dulce de Higos en frasco', 'Sumérgete en la dulzura natural de los higos catamarqueños enfrascados. Disfruta de su suave textura y su inconfundible sabor, perfecto para acompañar tus postres favoritos. Frasco de 380g', 'image-1711633609386.png', 4, 18, 5000, NULL, 380, NULL, '2024-03-28 13:46:49', NULL),
+(30, 'Dulce de Durazno en frasco', 'Experimenta la frescura y la dulzura del durazno catamarqueño en cada bocado. Elaborado con los mejores duraznos de la región, este dulce enfrascado es una verdadera delicia para el paladar. Frasco de 380g', 'image-1711633626872.png', 4, 15, 4500, NULL, 380, NULL, '2024-03-28 13:47:06', NULL),
+(31, 'Dulce de Manzana en frasco', 'Déjate cautivar por el sabor único de la manzana catamarqueña enfrascada. Con ingredientes de alta calidad y un proceso de elaboración artesanal, este dulce es una verdadera joya culinaria. Frasco de 380g', 'image-1711633645619.png', 4, 20, 4500, NULL, 380, NULL, '2024-03-28 13:47:25', NULL),
+(32, 'Dulce de Naranja en frasco', 'Disfruta de la intensidad y el aroma fresco de la naranja catamarqueña en este delicioso dulce enfrascado. Perfecto para disfrutar en cualquier momento del día. Frasco de 380g', 'image-1711633665575.png', 4, 15, 4500, NULL, 380, NULL, '2024-03-28 13:47:45', NULL),
+(33, 'Dulce de Membrillo en pan', 'Deléitate con el clásico sabor del pan de membrillo catamarqueño, elaborado con membrillos frescos y cocido lentamente hasta alcanzar una textura suave y un sabor inigualable. Pan de 500g', 'image-1711633687929.png', 4, 15, 5500, NULL, 500, NULL, '2024-03-28 13:48:07', NULL),
+(34, 'Aceite de Oliva', 'Descubre el exquisito sabor y la calidad superior del aceite de oliva catamarqueño. Elaborado con aceitunas de variedades seleccionadas y prensado en frío para conservar todos sus beneficios para la salud y su incomparable sabor. Un imprescindible en cualquier cocina gourmet.', 'image-1711633703374.png', 3, 25, 10000, NULL, 500, NULL, '2024-03-28 13:48:23', NULL),
+(35, 'Aceitunas Verdes', 'Descubre la auténtica esencia de Catamarca con nuestras aceitunas enfrascadas. Cultivadas con cuidado en los fértiles suelos de la región, estas aceitunas ofrecen un sabor único y una textura irresistible. Perfectas para acompañar tus ensaladas, aperitivos o simplemente disfrutar como un delicioso tentempié.', 'image-1711633718184.png', 3, 20, 8000, NULL, 500, NULL, '2024-03-28 13:48:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -321,7 +332,7 @@ ALTER TABLE `persons`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
