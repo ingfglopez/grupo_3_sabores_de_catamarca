@@ -6,26 +6,33 @@
   </div>
 
   <div class="centered-header">
-    <div class="search-header">
-      <input type="search" />
-      <div class="search-icon">
-        <i class="fas fa-search"></i>
+    <form action="/search" method="GET">
+      <div class="search-header">
+        <input type="search" name="q" placeholder=" Ingrese término de búsqueda">
+        <div class="search-icon">
+          <button>        
+          <i class="fas fa-search"></i>
+          </button>
+  
+        </div>
       </div>
-    </div>
+    </form>
+    
+    
     <div class="menu-list">
       <nav>
         <ul class="main-menu">
           <li>
             <a href="/"><i class="fa-solid fa-house"></i>Inicio</a>
           </li>
-<!--           <li>
+          <!--           <li>
             <a href="/products"><i class="fa-solid fa-bag-shopping"></i>Productos</a>
           </li> -->
           <% if (locals.isLogged) { %>
             <li>
               <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i>Carrito</a>
-            </li>           
-          <% } %>
+            </li>
+            <% } %>
         </ul>
       </nav>
       <nav class="nav" id="nav">
@@ -36,13 +43,13 @@
           <li><a href="#">Contacto</a></li>
           <li><a href="/about">Quienes somos</a></li>
           <% if (locals.isAdmin) { %>
-            <li><a href="/admin">Panel de control</a></li>            
-          <% } %>
-          <% if (!locals.isLogged) { %>
-            <li><a href="#" class="item-movil">Iniciar sesi&oacute;n</a></li>
-          <% } else { %>
-            <li><a href="#" class="item-movil">Cerrar sesi&oacute;n</a></li>
-          <% } %>
+            <li><a href="/admin">Panel de control</a></li>
+            <% } %>
+              <% if (!locals.isLogged) { %>
+                <li><a href="#" class="item-movil">Iniciar sesi&oacute;n</a></li>
+                <% } else { %>
+                  <li><a href="#" class="item-movil">Cerrar sesi&oacute;n</a></li>
+                  <% } %>
         </ul>
       </nav>
     </div>
@@ -56,20 +63,20 @@
     <% if (locals.isLogged) { %>
       <div class="cart">
         <a href="/productCart">Carrito <i class="fa-solid fa-cart-shopping"></i></a>
-      </div>     
-    <% } %>
-    <div class="account-link">
-<!--       <div>
+      </div>
+      <% } %>
+        <div class="account-link">
+          <!--       <div>
         <a href="/products/create"> Crear Producto <i class="fa-solid fa-circle-plus"></i></a>
       </div> -->
-      <div>
-        <% if (!locals.isLogged) { %>
-          <a href="/users/signin">Iniciar sesi&oacute;n <i class="fa-solid fa-right-to-bracket"></i></a>
-          <a href="/users/register">Crear cuenta <i class="fa-solid fa-user-plus"></i></a>
-        <% } else { %>
-          <a href="/users/signout">Cerrar sesi&oacute;n <i class="fa-solid fa-right-from-bracket"></i></a>         
-        <% } %>
-      </div>
-    </div>
+          <div>
+            <% if (!locals.isLogged) { %>
+              <a href="/users/signin">Iniciar sesi&oacute;n <i class="fa-solid fa-right-to-bracket"></i></a>
+              <a href="/users/register">Crear cuenta <i class="fa-solid fa-user-plus"></i></a>
+              <% } else { %>
+                <a href="/users/signout">Cerrar sesi&oacute;n <i class="fa-solid fa-right-from-bracket"></i></a>
+                <% } %>
+          </div>
+        </div>
   </div>
 </header>

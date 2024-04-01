@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('./partials/head') %>
+
+  <body>
+    <%- include('./partials/header') %>
+      <main class="container">
+
+        
+          <h1>Resultados de búsqueda</h1>
+
+          <div class="containerprod">
+
+            <div class="product-list ">
+              <% products.forEach( product=> {%>
+                <div class="product">
+                  <a href="/products/"<%= product.id%>>
+                  <img src="/images/<%= product.image %>" alt="<%= product.image %>" >
+                  </a>
+                  <h2>
+                    <a href="/products/"<%= product.id%>>
+                    <%= product.name %>
+                    </a>
+                  </h2>
+                  <p>
+                    <a href="/products/"<%= product.id%>> <%= product.description %></a>
+                  </p>
+                  <p class="price">Precio: <%= product.price %>
+                  </p>
+                  
+                </div>
+                <% }) %>
+            </div>
+
+          </div>
+
+         
+        
+
+      </main>
+      <%- include('./partials/footer') %>
+        <script src="js/burger.js"></script>
+  </body>
+
+</html>
