@@ -19,6 +19,7 @@ const mainController = {
   search:(req,res)=>{
     const query = req.query.q.trim(); 
    
+    
     db.Product.findAll(
        {
         where: {
